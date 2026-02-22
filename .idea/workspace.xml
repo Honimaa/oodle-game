@@ -4,33 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/ConexionBD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/PartidaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/UsuarioDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Intento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Partida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/util/Encriptador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/hello-view.fxml" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Estructura del proyecto inicial y bases de los DAO">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +63,19 @@
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
     </task>
+    <task id="LOCAL-00001" summary="Estructura del proyecto inicial y bases de los DAO">
+      <option name="closed" value="true" />
+      <created>1771792335459</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771792335459</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Estructura del proyecto inicial y bases de los DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura del proyecto inicial y bases de los DAO" />
   </component>
 </project>
