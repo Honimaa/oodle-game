@@ -1,4 +1,63 @@
 package com.example.oodlegame.dao;
 
+import com.example.oodlegame.model.Partida;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class PartidaDAO {
+
+    public boolean guardarPartida(Partida partida) throws SQLException {
+        String sql = "insert into partidas (usuario_id, ecuacion_objetivo, intentos_usados, victoria, fecha)" +
+                    "values (?, ?, ?, ?, ?)";
+
+        try (Connection conn = ConexionBD.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, partida.getUsuario().getId());
+            stmt.setString(2, partida.getEcuacionObjetivo());
+            stmt.setInt(3, partida.getIntentosUsados());
+            stmt.setBoolean(4, partida.isVictoria());
+            stmt.setTimestamp(5, Timestamp.valueOf(partida.getFecha()));
+
+            stmt.executeUpdate();
+            return true;
+
+        }catch (SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public List <Partida> ObtenerPartidasUsuario(int usuarioId) {
+
+        List <Partida> lista = new ArrayList<>();
+
+        String sql = "select * from partidas where usuario_id = ? order by fecha desc";
+
+        try (Connection conn = ConexionBD.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setInt(1, usuarioId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()){
+                Partida partida = new Partida();
+                partida.setId(rs.getInt("id"));
+                partida.setEcuacionObjetivo(rs.getString("ecuacion_objetivo"));
+                partida.setIntentosUsados(rs.getInt("intentos_usados"));
+                partida.setVictoria(rs.getBoolean("ganada"));
+                partida.setFecha(rs.getTimestamp("fecha").toLocalDateTime());
+
+                lista.add(partida);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
 }
