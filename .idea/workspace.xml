@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Configuracion de los dao y de los modelo">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/styles.css" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Css global para aplicar a las interfaces cuando se hagan">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,12 +116,21 @@
       <option name="project" value="LOCAL" />
       <updated>1771895385105</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Css global para aplicar a las interfaces cuando se hagan">
+      <option name="closed" value="true" />
+      <created>1771979573160</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1771979573160</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Estructura del proyecto inicial y bases de los DAO" />
     <MESSAGE value="Configuracion de los dao y de los modelo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configuracion de los dao y de los modelo" />
+    <MESSAGE value="Css global para aplicar a las interfaces cuando se hagan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Css global para aplicar a las interfaces cuando se hagan" />
   </component>
 </project>

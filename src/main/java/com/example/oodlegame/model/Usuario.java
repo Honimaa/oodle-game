@@ -10,14 +10,14 @@ public class Usuario {
     public Usuario(){
     }
 
-    //Aqui se registra
+
     public Usuario (String email, String username, String password){
         this.email = email;
         this.username = username;
         this.password = password;
     }
 
-    //Constructor completo
+
     public Usuario (int id, String email, String username, String password){
         this.id = id;
         this.email = email;
