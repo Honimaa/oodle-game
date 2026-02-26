@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="diagramas uml y workflow">
-      <change afterPath="$PROJECT_DIR$/docs/database/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/clases.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaLogin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaPartida.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaRegistro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/clases.puml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaLogin.puml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaPartida.puml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaRegistro.puml" beforeDir="false" />
-    </list>
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="guia README" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772072607852</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="guia README">
+      <option name="closed" value="true" />
+      <created>1772082117867</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1772082117867</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -182,6 +178,7 @@
     <MESSAGE value="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global" />
     <MESSAGE value="Readme modificado con los mockups" />
     <MESSAGE value="diagramas uml y workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="diagramas uml y workflow" />
+    <MESSAGE value="guia README" />
+    <option name="LAST_COMMIT_MESSAGE" value="guia README" />
   </component>
 </project>
