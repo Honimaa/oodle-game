@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Css global para aplicar a las interfaces cuando se hagan">
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Readme modificado con los mockups">
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/clases.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaLogin.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaPartida.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaRegistro.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="UML Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -53,16 +58,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Camilo/IdeaProjects/oodleGame&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Camilo/IdeaProjects/oodleGame/docs/mockups",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\docs\mockups" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\src" />
     </key>
@@ -124,13 +134,31 @@
       <option name="project" value="LOCAL" />
       <updated>1771979573160</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global">
+      <option name="closed" value="true" />
+      <created>1771980580738</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1771980580738</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Readme modificado con los mockups">
+      <option name="closed" value="true" />
+      <created>1771981458761</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1771981458761</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Estructura del proyecto inicial y bases de los DAO" />
     <MESSAGE value="Configuracion de los dao y de los modelo" />
     <MESSAGE value="Css global para aplicar a las interfaces cuando se hagan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Css global para aplicar a las interfaces cuando se hagan" />
+    <MESSAGE value="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global" />
+    <MESSAGE value="Readme modificado con los mockups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme modificado con los mockups" />
   </component>
 </project>

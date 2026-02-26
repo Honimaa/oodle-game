@@ -1,0 +1,27 @@
+@startuml
+actor Usuario
+
+participant LoginController
+participant UsuarioDAO
+participant ConexionBD
+database MySQL
+
+Usuario -> LoginController : login(email, password)
+LoginController -> UsuarioDAO : validarLogin(email,password)
+
+UsuarioDAO -> UsuarioDAO : buscarEmail(email)
+UsuarioDAO -> ConexionBD : getConnection()
+ConexionBD --> UsuarioDAO : Connection
+
+UsuarioDAO -> MySQL : SELECT * FROM usuarios WHERE email=?
+MySQL --> UsuarioDAO : datosUsuario
+
+alt Usuario existe
+    UsuarioDAO --> LoginController : true
+    LoginController --> Usuario : accederSistema()
+else Usuario no existe o contraseña incorrecta
+    UsuarioDAO --> LoginController : false
+    LoginController --> Usuario : mostrarError()
+end
+
+@enduml

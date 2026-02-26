@@ -1,0 +1,26 @@
+@startuml
+actor Usuario
+
+participant PartidaController
+participant JuegoService
+participant PartidaDAO
+participant ConexionBD
+database MySQL
+
+Usuario -> PartidaController : finalizarPartida()
+PartidaController -> JuegoService : calcularResultado()
+
+JuegoService --> PartidaController : resultado
+
+PartidaController -> PartidaDAO : guardarPartida(partida)
+
+PartidaDAO -> ConexionBD : getConnection()
+ConexionBD --> PartidaDAO : Connection
+
+PartidaDAO -> MySQL : INSERT INTO partidas
+MySQL --> PartidaDAO : confirmación
+
+PartidaDAO --> PartidaController : true
+PartidaController --> Usuario : mostrarResumen()
+
+@enduml

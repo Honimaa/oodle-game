@@ -1,0 +1,133 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+' ==============================
+'        PAQUETE MODEL
+' ==============================
+
+package model {
+
+class Usuario {
+  - id : int
+  - email : String
+  - username : String
+  - password : String
+  --
+  + getId() : int
+  + setId(id:int) : void
+  + getEmail() : String
+  + setEmail(email:String) : void
+  + getUsername() : String
+  + setUsername(username:String) : void
+  + getPassword() : String
+  + setPassword(password:String) : void
+}
+
+class Partida {
+  - id : int
+  - fecha : LocalDateTime
+  - intentos : int
+  - gano : boolean
+  - usuario : Usuario
+  --
+  + getId() : int
+  + setId(id:int) : void
+  + getFecha() : LocalDateTime
+  + setFecha(fecha:LocalDateTime) : void
+  + getIntentos() : int
+  + setIntentos(intentos:int) : void
+  + isGano() : boolean
+  + setGano(gano:boolean) : void
+}
+
+Usuario "1" -- "0..*" Partida
+
+}
+
+' ==============================
+'        PAQUETE DAO
+' ==============================
+
+package dao {
+
+class ConexionBD {
+  - URL : String
+  - USER : String
+  - PASSWORD : String
+  --
+  + getConnection() : Connection
+}
+
+class UsuarioDAO {
+  --
+  + registrarUsuario(u:Usuario) : boolean
+  + buscarEmail(email:String) : Usuario
+  + validarLogin(email:String, password:String) : boolean
+}
+
+class PartidaDAO {
+  --
+  + guardarPartida(p:Partida) : boolean
+  + listarPorUsuario(idUsuario:int) : List<Partida>
+}
+
+UsuarioDAO ..> ConexionBD
+PartidaDAO ..> ConexionBD
+
+UsuarioDAO ..> Usuario
+PartidaDAO ..> Partida
+
+}
+
+' ==============================
+'        PAQUETE SERVICE
+' ==============================
+
+package service {
+
+class JuegoService {
+  --
+  + generarPalabra() : String
+  + validarIntento(palabra:String, intento:String) : boolean
+  + calcularResultado() : String
+}
+
+JuegoService ..> PartidaDAO
+
+}
+
+' ==============================
+'        PAQUETE CONTROLLER
+' ==============================
+
+package controller {
+
+class LoginController {
+  - usuarioDAO : UsuarioDAO
+  --
+  + login() : void
+}
+
+class RegistroController {
+  - usuarioDAO : UsuarioDAO
+  --
+  + registrar() : void
+}
+
+class PartidaController {
+  - partidaDAO : PartidaDAO
+  - juegoService : JuegoService
+  --
+  + iniciarPartida() : void
+  + guardarPartida() : void
+}
+
+LoginController ..> UsuarioDAO
+RegistroController ..> UsuarioDAO
+PartidaController ..> PartidaDAO
+PartidaController ..> JuegoService
+
+}
+
+@enduml
