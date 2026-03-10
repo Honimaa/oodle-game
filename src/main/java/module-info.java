@@ -4,6 +4,7 @@ module com.example.oodlegame {
     requires java.sql;
 
 
+    opens com.example.oodlegame.controller to javafx.fxml;
     opens com.example.oodlegame to javafx.fxml;
     exports com.example.oodlegame;
 }

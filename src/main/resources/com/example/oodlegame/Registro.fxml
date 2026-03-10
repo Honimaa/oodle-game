@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oodlegame.controller.RegistroController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: #E9EAE3;" HBox.hgrow="ALWAYS">
+            <children>
+                <ImageView fitHeight="284.0" fitWidth="436.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Logo.png" />
+                    </image>
+                </ImageView>
+            </children></VBox>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
+            <children>
+                <Label text="Nuevo Usuario">
+                    <font>
+                        <Font size="40.0" />
+                    </font></Label>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Label text="Correo">
+                            <font>
+                                <Font size="20.0" />
+                            </font></Label>
+                  <TextField>
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                        <Label text="Usuario">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtNewUser">
+                            <font>
+                                <Font size="18.0" />
+                            </font></TextField>
+                        <Label text="Contraseña">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <PasswordField fx:id="txtNewPass">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </PasswordField>
+                        <Label text="Confirmar Contraseña">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <PasswordField fx:id="txtConfirmPass">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </PasswordField>
+                        <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Crear Usuario">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                    </VBox.margin></VBox>
+            </children></VBox>
+    </children>
+</HBox>
