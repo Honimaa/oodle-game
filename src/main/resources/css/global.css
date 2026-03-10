@@ -1,0 +1,74 @@
+/* =====================================
+   OODLE GAME - GLOBAL STYLE
+   ===================================== */
+
+/* Fondo general de la aplicación */
+.root{
+    -fx-background-color: #d9d9d6;
+    -fx-font-family: "Segoe UI", Arial;
+}
+
+/* TITULOS PRINCIPALES */
+
+.title{
+    -fx-font-size: 36px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: 500;
+}
+
+/* LABELS */
+
+.label{
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* CAMPOS DE TEXTO */
+
+.text-field{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cfcfcf;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+/* PASSWORD FIELD */
+
+.password-field{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cfcfcf;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+/* BOTON PRINCIPAL */
+
+.button{
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-background-radius: 6;
+    -fx-padding: 10 16;
+}
+
+/* HOVER BOTON */
+
+.button:hover{
+    -fx-background-color: #43a047;
+}
+
+/* LINK REGISTRO */
+
+.hyperlink{
+    -fx-text-fill: #0288d1;
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+}
+
+.hyperlink:hover{
+    -fx-text-fill: #01579b;
+}
