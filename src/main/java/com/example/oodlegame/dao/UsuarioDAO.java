@@ -28,6 +28,7 @@ public class UsuarioDAO {
         }
     }
 
+
     public Usuario buscarEmail(String email){
         String sql = "select * from usuarios where email = ?";
 
@@ -53,6 +54,26 @@ public class UsuarioDAO {
         }
         return null;
     }
+
+
+    public boolean buscarUser(String username){
+        String sql = "select * from usuarios where username = ?";
+
+        try (Connection conn = ConexionBD.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+                return rs.getInt(1) > 0;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
     public boolean validaLogin(String email, String password){
         Usuario usuario = buscarEmail(email);
