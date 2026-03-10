@@ -56,13 +56,32 @@ public class UsuarioDAO {
     }
 
 
-    public boolean buscarUser(String username){
-        String sql = "select * from usuarios where username = ?";
+    public boolean duplicateUser(String username){
+        String sql = "select count(*) from usuarios where username = ?";
 
         try (Connection conn = ConexionBD.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)){
 
             stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+                return rs.getInt(1) > 0;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    public boolean duplicateEmail(String email){
+        String sql = "select count(*) from usuarios where email = ?";
+
+        try (Connection conn = ConexionBD.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()){

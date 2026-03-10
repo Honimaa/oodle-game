@@ -29,23 +29,34 @@ public class RegistroController {
         String user = txtUser.getText();
         String pass = txtPassword.getText();
         String npass = txtConfirmPassword.getText();
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         if (email.isEmpty() || user.isEmpty() || pass.isEmpty() || npass.isEmpty()){
             showAlert(Alert.AlertType.WARNING, "Completa todos los campos");
             return;
         }
 
-        Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setEmail(email);
-        nuevoUsuario.setUsername(user);
-        nuevoUsuario.setPassword(pass);
-
         try {
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+            if(usuarioDAO.duplicateUser(user)){
+                showAlert(Alert.AlertType.WARNING, "El nombre de usuario: " + user +" ya existe");
+                return;
+            } else if (usuarioDAO.duplicateEmail(email)) {
+                showAlert(Alert.AlertType.WARNING, "El correo: " + email + " ya tiene una cuenta registrada");
+                return;
+            }
+
+            Usuario nuevoUsuario = new Usuario();
+
+            nuevoUsuario.setEmail(email);
+            nuevoUsuario.setUsername(user);
+            nuevoUsuario.setPassword(pass);
+
             boolean success = usuarioDAO.registrarUsuario(nuevoUsuario);
 
             if (success){
                 showAlert(Alert.AlertType.CONFIRMATION, "Usuario registrado correctamente");
+                clear();
             }else {
                 showAlert(Alert.AlertType.ERROR, "No se pudo registrar el usuario, email o usuario ya existen");
             }
@@ -55,11 +66,17 @@ public class RegistroController {
     }
 
 
-
     private void showAlert(Alert.AlertType type, String msg){
         Alert a = new Alert(type);
         a.setHeaderText(null);
         a.setContentText(msg);
         a.showAndWait();
+    }
+
+    private void clear(){
+        txtEmail.clear();
+        txtUser.clear();
+        txtPassword.clear();
+        txtConfirmPassword.clear();
     }
 }
