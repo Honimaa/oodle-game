@@ -19,8 +19,8 @@ public class UsuarioDAO {
             stmt.setString(2, usuario.getUsername());
             stmt.setString(3, usuario.getPassword());
 
-            stmt.executeUpdate();
-            return true;
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
 
         } catch (SQLException e){
             e.printStackTrace();

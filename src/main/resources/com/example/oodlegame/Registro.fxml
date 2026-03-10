@@ -28,7 +28,7 @@
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                  <TextField>
+                  <TextField fx:id="txtEmail">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
@@ -40,7 +40,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField fx:id="txtNewUser">
+                        <TextField fx:id="txtUser">
                             <font>
                                 <Font size="18.0" />
                             </font></TextField>
@@ -52,7 +52,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <PasswordField fx:id="txtNewPass">
+                        <PasswordField fx:id="txtPassword">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -65,7 +65,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </Label>
-                        <PasswordField fx:id="txtConfirmPass">
+                        <PasswordField fx:id="txtConfirmPassword">
                             <font>
                                 <Font size="18.0" />
                             </font>
