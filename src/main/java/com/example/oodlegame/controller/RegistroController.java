@@ -36,6 +36,11 @@ public class RegistroController {
             return;
         }
 
+        if (pass.length()>6){
+            showAlert(Alert.AlertType.WARNING, "La contraseña debe tener al menos 6 caracteres");
+            return;
+        }
+
         try {
 
             if(usuarioDAO.duplicateUser(user)){
