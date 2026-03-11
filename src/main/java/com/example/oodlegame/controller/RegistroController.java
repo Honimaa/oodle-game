@@ -7,6 +7,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.HexFormat;
+
 public class RegistroController {
 
     @FXML
@@ -53,9 +57,14 @@ public class RegistroController {
 
             Usuario nuevoUsuario = new Usuario();
 
+            //metodo para hashear la contrasena
+            byte[] dig = MessageDigest.getInstance("SHA-256")
+                    .digest(pass.getBytes(StandardCharsets.UTF_8));
+            String passHash = HexFormat.of().formatHex(dig);
+
             nuevoUsuario.setEmail(email);
             nuevoUsuario.setUsername(user);
-            nuevoUsuario.setPassword(pass);
+            nuevoUsuario.setPassword(passHash);
 
             boolean success = usuarioDAO.registrarUsuario(nuevoUsuario);
 

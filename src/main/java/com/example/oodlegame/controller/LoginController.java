@@ -9,6 +9,8 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.security.MessageDigest;
+
 public class LoginController {
 
     @FXML
@@ -24,6 +26,12 @@ public class LoginController {
     private Hyperlink btnRegistrar;
 
 
+    /*Hashea la contrasena dada para compararla en la base de datos
+
+    byte[] digest = MessageDigest.getInstance("SHA-256")
+            .digest()
+
+        */
 
     @FXML private void irRegistrar() {
         try {
