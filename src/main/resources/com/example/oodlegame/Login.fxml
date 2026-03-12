@@ -24,7 +24,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUser">
+                  <TextField fx:id="txtEmail">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -37,12 +37,12 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="txtPass">
+                  <PasswordField fx:id="txtPassword">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Ingresar">
+                  <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#validarLogin" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Ingresar">
                      <font>
                         <Font size="18.0" />
                      </font>
