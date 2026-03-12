@@ -70,7 +70,7 @@
                                 <Font size="18.0" />
                             </font>
                         </PasswordField>
-                        <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Crear Usuario">
+                        <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Crear Usuario">
                             <font>
                                 <Font size="18.0" />
                             </font>

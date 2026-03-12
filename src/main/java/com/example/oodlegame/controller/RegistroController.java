@@ -3,9 +3,14 @@ package com.example.oodlegame.controller;
 import com.example.oodlegame.model.Usuario;
 import com.example.oodlegame.dao.UsuarioDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -24,6 +29,9 @@ public class RegistroController {
 
     @FXML
     private PasswordField txtConfirmPassword;
+
+    @FXML
+    private Button btnNewUser;
 
 
     @FXML
@@ -71,11 +79,25 @@ public class RegistroController {
             if (success){
                 showAlert(Alert.AlertType.CONFIRMATION, "Usuario registrado correctamente");
                 clear();
+                irLogin();
             }else {
                 showAlert(Alert.AlertType.ERROR, "No se pudo registrar el usuario, email o usuario ya existen");
             }
             }catch (Exception e){
                 showAlert(Alert.AlertType.ERROR, "Error en la base de datos");
+        }
+    }
+
+    @FXML private void irLogin() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            LoginController LoginController = loader.getController();
+            Stage stage = (Stage) btnNewUser.getScene().getWindow();
+            stage.setScene(scene);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

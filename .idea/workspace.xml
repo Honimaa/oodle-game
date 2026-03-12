@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="logica de login">
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="conteo de intentos de login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773282613259</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="conteo de intentos de login">
+      <option name="closed" value="true" />
+      <created>1773285261154</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1773285261154</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -284,6 +293,7 @@
     <MESSAGE value="requisitos de contrasena" />
     <MESSAGE value="Hash password" />
     <MESSAGE value="logica de login" />
-    <option name="LAST_COMMIT_MESSAGE" value="logica de login" />
+    <MESSAGE value="conteo de intentos de login" />
+    <option name="LAST_COMMIT_MESSAGE" value="conteo de intentos de login" />
   </component>
 </project>
