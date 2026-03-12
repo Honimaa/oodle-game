@@ -35,6 +35,7 @@ public class LoginController {
 
         String email = txtEMail.getText();
         String password = txtPassword.getText();
+        int intentos = 0;
 
         if (email.isEmpty() || password.isEmpty()){
             showAlert(Alert.AlertType.WARNING, "Complete todos los campos");
@@ -56,6 +57,12 @@ public class LoginController {
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
                 clear();
+
+                intentos ++;
+                if (intentos >= 3){
+                    btnLogin.setDisable(true);
+                    showAlert(Alert.AlertType.ERROR, "Demasiados intentos, aplicacion bloqueada");
+                }
             }
 
         }catch (Exception e){
