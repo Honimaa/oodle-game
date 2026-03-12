@@ -53,7 +53,7 @@ public class LoginController {
 
             if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(passHash)){
                 showAlert(Alert.AlertType.INFORMATION, "Bienvenido " + usuarioEncontrado.getUsername());
-                irMenu(usuarioEncontrado);
+                irMenu();
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
                 clear();
@@ -86,7 +86,7 @@ public class LoginController {
     }
 
 
-    @FXML private void irMenu(Usuario usuario) {
+    @FXML private void irMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Menu.fxml"));
             Parent root = loader.load();

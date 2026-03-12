@@ -2,6 +2,7 @@ module com.example.oodlegame {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires mysql.connector.j;
 
 
     opens com.example.oodlegame.controller to javafx.fxml;
