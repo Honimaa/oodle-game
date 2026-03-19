@@ -168,9 +168,13 @@ Both the source files (`.puml`) and rendered images (`.png`) are included in the
 
 ![Sequence Diagram - Login](docs/diagrams/secuenciaLogin.png)
 
-### 8.4 Sequence Diagram – Save Game
+### 8.4 Sequence Diagram – Play game
 
-![Sequence Diagram - Save Game](docs/diagrams/secuenciaPartida.png)
+![Sequence Diagram - Play game](docs/diagrams/secuenciaPartida.png)
+
+### 8.5 Sequence Diagram - Consult history of matches
+
+![Sequence Diagram - Consult history of matches](docs/diagrams/secuenciaHistorial.png)
 
 ---
 
