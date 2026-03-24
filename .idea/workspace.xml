@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Correcciones a los diagramas y cambios en el README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/util/Encriptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/clases.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/clases.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773899365089</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Correcciones a los diagramas y cambios en el README">
+      <option name="closed" value="true" />
+      <created>1774312740012</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1774312740012</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
