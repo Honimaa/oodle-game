@@ -7,7 +7,20 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oodlegame.controller.RegistroController">
    <children>
-      <VBox prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;" />
+      <VBox alignment="TOP_CENTER" prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;">
+         <children>
+            <Label alignment="TOP_CENTER" text="*">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_CENTER" text="+">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
       <VBox alignment="CENTER" prefHeight="451.0" prefWidth="719.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
          <children>
             <Label text="Bienvenido">
