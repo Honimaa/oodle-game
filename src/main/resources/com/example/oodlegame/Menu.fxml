@@ -1,11 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oodlegame.controller.MenuController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oodlegame.controller.RegistroController">
    <children>
-      <Label layoutX="300.0" layoutY="113.0" text="Este sera el menu" />
+      <VBox prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;" />
+      <VBox alignment="CENTER" prefHeight="451.0" prefWidth="719.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="Bienvenido">
+               <font>
+                  <Font size="40.0" />
+               </font></Label>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Correo">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <TextField fx:id="txtEmail">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <Label text="Usuario">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtUser">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <Label text="Contraseña">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="txtPassword">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Label text="Confirmar Contraseña">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <PasswordField fx:id="txtConfirmPassword">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Crear Usuario">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin></VBox>
+         </children></VBox>
+      <VBox prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;" />
    </children>
-</AnchorPane>
+</HBox>
