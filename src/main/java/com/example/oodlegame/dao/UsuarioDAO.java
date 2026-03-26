@@ -94,13 +94,5 @@ public class UsuarioDAO {
     }
 
 
-    public boolean validaLogin(String email, String password){
-        Usuario usuario = buscarEmail(email);
 
-        if (usuario == null){
-            return false;
-        }
-
-        return usuario.getPassword().equals(password);
-    }
 }

@@ -53,7 +53,7 @@ public class LoginController {
 
             if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(passHash)){
                 showAlert(Alert.AlertType.INFORMATION, "Bienvenido " + usuarioEncontrado.getUsername());
-                irMenu();
+                irMenu(usuarioEncontrado.getUsername());
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
                 clear();
@@ -86,12 +86,13 @@ public class LoginController {
     }
 
 
-    @FXML private void irMenu() {
+    private void irMenu(String username) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Menu.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            MenuController MenuController = loader.getController();
+            MenuController menuController = loader.getController();
+            menuController.setUsername(username);
             Stage stage = (Stage) btnLogin.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
