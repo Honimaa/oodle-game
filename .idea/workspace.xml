@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Logica menu">
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Correccion bugs menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/ConexionBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/ConexionBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/PartidaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/PartidaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/images/Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/division.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/images/division.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/multiplicacion.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/images/multiplicacion.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/resta.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/images/resta.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/suma.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/images/suma.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Partida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774504258493</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Correccion bugs menu">
+      <option name="closed" value="true" />
+      <created>1774506682111</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1774506682111</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -399,6 +394,7 @@
     <MESSAGE value="Correcciones a los diagramas y cambios en el README" />
     <MESSAGE value="diseno menu.fxml" />
     <MESSAGE value="Logica menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logica menu" />
+    <MESSAGE value="Correccion bugs menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion bugs menu" />
   </component>
 </project>
