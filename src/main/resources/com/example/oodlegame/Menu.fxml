@@ -10,73 +10,48 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;">
          <children>
-            <ImageView fitHeight="241.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/suma.png" />
                </image>
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="264.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/multiplicacion.png" />
                </image>
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
             </ImageView>
          </children>
       </VBox>
       <VBox alignment="CENTER" prefHeight="503.0" prefWidth="730.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
          <children>
-            <Label text="Bienvenido">
+            <Label fx:id="wecolme" text="Bienvenido">
                <font>
                   <Font size="40.0" />
                </font></Label>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Correo">
-                     <font>
-                        <Font size="20.0" />
-                     </font></Label>
-                  <TextField fx:id="txtEmail">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <Label text="Usuario">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtUser">
-                     <font>
-                        <Font size="18.0" />
-                     </font></TextField>
-                  <Label text="Contraseña">
+                  <Button fx:id="btnNewMatch" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 5; -fx-background-color: #0A7BC7; -fx-text-fill: #B8D4FF;" text="Nueva Partida">
                      <font>
                         <Font size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <PasswordField fx:id="txtPassword">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </PasswordField>
-                  <Label text="Confirmar Contraseña">
+                        <Insets top="20.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btnHistory" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-radius: 5; -fx-background-color: #FFA600; -fx-text-fill: #FAE5BD;" text="Ver Historial">
                      <font>
                         <Font size="18.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
-                  </Label>
-                  <PasswordField fx:id="txtConfirmPassword">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </PasswordField>
-                  <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Crear Usuario">
+                  </Button>
+                  <Button fx:id="btnNewUser" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #4CAF50; -fx-text-fill: #C6F1CE; -fx-background-radius: 5;" text="Crear Usuario">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -95,11 +70,17 @@
                <image>
                   <Image url="@/images/resta.png" />
                </image>
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                        <Image url="@/images/division.png" />
                     </image>
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
             </ImageView>
          </children></VBox>
    </children>
