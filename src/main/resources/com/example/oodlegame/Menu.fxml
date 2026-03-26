@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -9,19 +10,19 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;">
          <children>
-            <Label alignment="TOP_CENTER" text="*">
-               <font>
-                  <Font size="96.0" />
-               </font>
-            </Label>
-            <Label alignment="BOTTOM_CENTER" text="+">
-               <font>
-                  <Font size="96.0" />
-               </font>
-            </Label>
+            <ImageView fitHeight="241.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/suma.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="264.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/multiplicacion.png" />
+               </image>
+            </ImageView>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="451.0" prefWidth="719.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="503.0" prefWidth="730.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
          <children>
             <Label text="Bienvenido">
                <font>
@@ -88,6 +89,18 @@
                   <Insets left="30.0" right="30.0" />
                </VBox.margin></VBox>
          </children></VBox>
-      <VBox prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;" />
+      <VBox prefHeight="503.0" prefWidth="450.0" style="-fx-background-color: #EAEDE6;">
+         <children>
+            <ImageView fitHeight="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/resta.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@/images/division.png" />
+                    </image>
+            </ImageView>
+         </children></VBox>
    </children>
 </HBox>
