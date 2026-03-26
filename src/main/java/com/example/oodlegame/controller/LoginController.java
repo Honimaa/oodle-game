@@ -1,6 +1,6 @@
 package com.example.oodlegame.controller;
 
-import com.example.oodlegame.dao.UsuarioDAO;
+import com.example.oodlegame.service.UsuarioDAO;
 import com.example.oodlegame.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ import java.util.HexFormat;
 public class LoginController {
 
     @FXML
-    private TextField txtEMail;
+    private TextField txtEmail;
 
     @FXML
     private TextField txtPassword;
@@ -33,7 +33,7 @@ public class LoginController {
 
     @FXML private void validarLogin() {
 
-        String email = txtEMail.getText();
+        String email = txtEmail.getText();
         String password = txtPassword.getText();
         int intentos = 0;
 
@@ -52,7 +52,7 @@ public class LoginController {
             Usuario usuarioEncontrado = dao.buscarEmail(email);
 
             if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(passHash)){
-                showAlert(Alert.AlertType.INFORMATION, "Bienvenido " + usuarioEncontrado.getUsername());
+                showAlert(Alert.AlertType.CONFIRMATION, "Bienvenido " + usuarioEncontrado.getUsername());
                 irMenu(usuarioEncontrado.getUsername());
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
@@ -110,7 +110,7 @@ public class LoginController {
 
 
     private void clear(){
-        txtEMail.clear();
+        txtEmail.clear();
         txtPassword.clear();
     }
 }

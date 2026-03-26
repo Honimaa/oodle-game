@@ -1,4 +1,4 @@
-package com.example.oodlegame.dao;
+package com.example.oodlegame.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

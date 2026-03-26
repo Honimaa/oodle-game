@@ -12,7 +12,7 @@
          <children>
             <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/images/suma.png" />
+                  <Image url="@images/suma.png" />
                </image>
                <VBox.margin>
                   <Insets top="45.0" />
@@ -20,7 +20,7 @@
             </ImageView>
             <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/images/multiplicacion.png" />
+                  <Image url="@images/multiplicacion.png" />
                </image>
                <VBox.margin>
                   <Insets top="45.0" />
@@ -30,7 +30,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="503.0" prefWidth="730.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="Wecolme" text="Bienvenido">
+            <Label fx:id="welcome" text="Bienvenido">
                <font>
                   <Font size="40.0" />
                </font></Label>
@@ -68,7 +68,7 @@
          <children>
             <ImageView fitHeight="187.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/images/resta.png" />
+                  <Image url="@images/resta.png" />
                </image>
                <VBox.margin>
                   <Insets top="45.0" />
@@ -76,7 +76,7 @@
             </ImageView>
             <ImageView fitHeight="187.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                       <Image url="@/images/division.png" />
+                       <Image url="@images/division.png" />
                     </image>
                <VBox.margin>
                   <Insets top="45.0" />

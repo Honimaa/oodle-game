@@ -1,7 +1,7 @@
 package com.example.oodlegame.controller;
 
 import com.example.oodlegame.model.Usuario;
-import com.example.oodlegame.dao.UsuarioDAO;
+import com.example.oodlegame.service.UsuarioDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,4 +1,4 @@
-package com.example.oodlegame.dao;
+package com.example.oodlegame.service;
 
 import com.example.oodlegame.model.Partida;
 
