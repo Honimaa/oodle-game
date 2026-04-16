@@ -57,7 +57,7 @@ public class PartidaController {
 
     //Volver al menu
     @FXML
-    private void OnHomeClicked(){
+    private void onHomeClicked(){
         // TODO: navegar a la patalla principal (Menu.fxml)
     }
 
