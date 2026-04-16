@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Creacion de metodo para hacer la ecuacion del juego">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Partida.fxml" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Creacion del diseno de la interfaz partida">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Partida.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/Partida.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774508717084</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Creacion del diseno de la interfaz partida">
+      <option name="closed" value="true" />
+      <created>1775525280993</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1775525280993</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -405,6 +412,7 @@
     <MESSAGE value="Logica menu" />
     <MESSAGE value="Correccion bugs menu" />
     <MESSAGE value="Creacion de metodo para hacer la ecuacion del juego" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creacion de metodo para hacer la ecuacion del juego" />
+    <MESSAGE value="Creacion del diseno de la interfaz partida" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creacion del diseno de la interfaz partida" />
   </component>
 </project>
