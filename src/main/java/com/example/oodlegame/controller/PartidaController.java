@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.awt.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class PartidaController {
