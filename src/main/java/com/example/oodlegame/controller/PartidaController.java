@@ -175,7 +175,7 @@ public class PartidaController {
 
        //verificar la victoria
        if (esVictoria(estados)){
-           juegoTerminado == true;
+           juegoTerminado = true;
            mostrarMensajeFinal(true);
            return;
        }
@@ -183,7 +183,7 @@ public class PartidaController {
        //avanzar fila o fin del juego
        filaActual++;
        if (filaActual >= 6){
-           juegoTerminado == true;
+           juegoTerminado = true;
            mostrarMensajeFinal(false);
        }else {
            setFilaEditable(filaActual, true);
@@ -386,7 +386,6 @@ public class PartidaController {
             case "/" -> "÷";
             default  -> op;
         };
-
     }
 
 

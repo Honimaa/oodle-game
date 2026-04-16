@@ -22,7 +22,7 @@ public class Intento {
         this.expresion = expresion;
     }
 
-    public boolean isAutenticacion() {
+    public boolean getAutenticacion() {
         return autenticacion;
     }
 

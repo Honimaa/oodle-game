@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Logica de partida con bugs xd" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Arreglo de algunos bugs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Intento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Intento.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -406,11 +410,18 @@
       <option name="project" value="LOCAL" />
       <updated>1776303758274</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Arreglo de algunos bugs">
+      <option name="closed" value="true" />
+      <created>1776307237732</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1776307237732</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Estructura del proyecto inicial y bases de los DAO" />
     <MESSAGE value="Configuracion de los dao y de los modelo" />
     <MESSAGE value="Css global para aplicar a las interfaces cuando se hagan" />
     <MESSAGE value="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global" />
@@ -435,6 +446,7 @@
     <MESSAGE value="Creacion de metodo para hacer la ecuacion del juego" />
     <MESSAGE value="Creacion del diseno de la interfaz partida" />
     <MESSAGE value="Logica de partida con bugs xd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logica de partida con bugs xd" />
+    <MESSAGE value="Arreglo de algunos bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglo de algunos bugs" />
   </component>
 </project>
