@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Arreglo de algunos bugs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Intento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/model/Intento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,7 +416,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776307237732</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Arreglo de algunos bugs">
+      <option name="closed" value="true" />
+      <created>1776312369417</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1776312369417</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Arreglo de algunos bugs">
+      <option name="closed" value="true" />
+      <created>1776312485545</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1776312485545</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

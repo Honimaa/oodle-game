@@ -1,15 +1,13 @@
 package com.example.oodlegame.controller;
 
 import com.example.oodlegame.model.Intento;
-import com.example.oodlegame.model.Partida;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
+
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class PartidaController {
@@ -64,8 +62,8 @@ public class PartidaController {
     }
 
     private static final String COLOR_CORRECT = "#6AAA64";
-    private static final String COLOR_PARTIAL = "C9B458";
-    private static final String COLOR_WRONG = "787C7E";
+    private static final String COLOR_PARTIAL = "#C9B458";
+    private static final String COLOR_WRONG = "#787C7E";
 
     private static final String COLOR_DEFAULT = "#FFFFFF";
     private static final String COLOR_TARGET = "#F08080";
@@ -133,7 +131,7 @@ public class PartidaController {
        //mostrar el resultado esperado en todos los ans
        for (Label ans : ansLabels){
            ans.setText(String.valueOf(resultadoEsperado));
-           ans.setStyle(RESULT_STYLE_BASE + "-fx-background-color" + COLOR_TARGET + ";");
+           ans.setStyle(RESULT_STYLE_BASE + "-fx-background-color: " + COLOR_TARGET + ";");
        }
 
        //resetear todos los campos
