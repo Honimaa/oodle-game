@@ -168,9 +168,12 @@ public class PartidaController {
 
 
        //guardar intento en el modelo
-       Intento intentoObj = new Intento();
-       intentoObj.setNumeros(intento);
-       intentoObj.setEstados(estado);
+       String expresionIntento = intento[0] + solucionOps[0]
+               + intento[1] + solucionOps[1]
+               + intento[2] + solucionOps[2]
+               + intento[3];
+       boolean correcto = esVictoria(estados);
+       Intento intentoObj = new Intento(expresionIntento, correcto);
 
 
        //verificar la victoria
