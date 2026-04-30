@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Ultimas correcciones historial">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" afterDir="false" />
-    </list>
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Preparacion para presentar la aplicacion el dia de manana" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -490,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777527805909</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Preparacion para presentar la aplicacion el dia de manana">
+      <option name="closed" value="true" />
+      <created>1777528543225</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1777528543225</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="x" />
     <MESSAGE value="vistas registro y login" />
     <MESSAGE value="logica de registro y creacion de usuarios en la base de datos" />
     <MESSAGE value="agregado metodo para buscar por nombre de usuario" />
@@ -519,6 +522,7 @@
     <MESSAGE value="Cambios en el controllador de partida para adaptarse a la nueva vista" />
     <MESSAGE value="Cambios en la entidad intento" />
     <MESSAGE value="Ultimas correcciones historial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ultimas correcciones historial" />
+    <MESSAGE value="Preparacion para presentar la aplicacion el dia de manana" />
+    <option name="LAST_COMMIT_MESSAGE" value="Preparacion para presentar la aplicacion el dia de manana" />
   </component>
 </project>

@@ -41,7 +41,7 @@ public class LoginController {
 
         try {
 
-            byte[] dig = MessageDigest.getInstance("SHA-256")
+            byte[] dig = MessageDigest.getInstance("MD5")
                     .digest(password.getBytes(StandardCharsets.UTF_8));
             String passHash = HexFormat.of().formatHex(dig);
 

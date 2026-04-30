@@ -71,7 +71,7 @@ public class RegistroController {
             Usuario nuevoUsuario = new Usuario();
 
             //metodo para hashear la contrasena
-            byte[] dig = MessageDigest.getInstance("SHA-256")
+            byte[] dig = MessageDigest.getInstance("MD5")
                     .digest(pass.getBytes(StandardCharsets.UTF_8));
             String passHash = HexFormat.of().formatHex(dig);
 
