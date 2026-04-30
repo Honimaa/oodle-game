@@ -22,13 +22,13 @@ public class MenuController {
     private Button btnClose;
 
     @FXML
-    private Label welcome;
+    private Label lblBienvenido;
 
     private Usuario usuarioActual;
 
     public void setUsuario(Usuario usuario){
         this.usuarioActual = usuario;
-        welcome.setText("Bienvenido, " + usuario.getUsername() + "!");
+        lblBienvenido.setText("Bienvenido, " + usuario.getUsername() + "!");
     }
 
     @FXML

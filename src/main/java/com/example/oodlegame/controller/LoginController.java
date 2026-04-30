@@ -50,7 +50,6 @@ public class LoginController {
 
             if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(passHash)){
                 intentos = 0;
-                showAlert(Alert.AlertType.CONFIRMATION, "Bienvenido " + usuarioEncontrado.getUsername());
                 irMenu(usuarioEncontrado);
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
@@ -95,10 +94,12 @@ public class LoginController {
             Scene scene = new Scene(root);
             Stage stage = (Stage) btnLogin.getScene().getWindow();
             stage.setScene(scene);
-        }catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 
 

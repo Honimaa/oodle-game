@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Cambios en el controllador de partida para adaptarse a la nueva vista">
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Cambios en la entidad intento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -472,11 +476,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777525599287</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Cambios en la entidad intento">
+      <option name="closed" value="true" />
+      <created>1777526177830</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1777526177830</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="diagramas uml y workflow" />
     <MESSAGE value="guia README" />
     <MESSAGE value="x" />
     <MESSAGE value="vistas registro y login" />
@@ -501,6 +512,7 @@
     <MESSAGE value="Correccion de las entidades, para evitar futuros bugs" />
     <MESSAGE value="cambios a las vistas y creacion del controlador de historial" />
     <MESSAGE value="Cambios en el controllador de partida para adaptarse a la nueva vista" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en el controllador de partida para adaptarse a la nueva vista" />
+    <MESSAGE value="Cambios en la entidad intento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la entidad intento" />
   </component>
 </project>
