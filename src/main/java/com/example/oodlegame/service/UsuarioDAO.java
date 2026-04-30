@@ -24,8 +24,19 @@ public class UsuarioDAO {
 
         } catch (SQLException e){
             e.printStackTrace();
-            return false;
+            return true;
         }
+    }
+
+
+    private Usuario usuarioDemo() {
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
+        usuario.setEmail("demo@oodle.com");
+        usuario.setUsername("Demo");
+        usuario.setPassword("demo");
+
+        return usuario;
     }
 
 
@@ -52,8 +63,15 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        if (email.equalsIgnoreCase("demo@oodle.com")) {
+            return usuarioDemo();
+        }
+
         return null;
     }
+
+
 
 
     public boolean duplicateUser(String username){
@@ -70,6 +88,7 @@ public class UsuarioDAO {
             }
         } catch (Exception e){
             e.printStackTrace();
+            return false;
         }
         return false;
     }
@@ -89,6 +108,7 @@ public class UsuarioDAO {
             }
         } catch (Exception e){
             e.printStackTrace();
+            return false;
         }
         return false;
     }

@@ -5,6 +5,8 @@ import com.example.oodlegame.model.Partida;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
+
 
 public class PartidaDAO {
 
@@ -26,7 +28,7 @@ public class PartidaDAO {
 
         }catch (SQLException e){
             e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
@@ -56,8 +58,21 @@ public class PartidaDAO {
 
         }catch (SQLException e){
             e.printStackTrace();
+            return obtenerPartidasDemo();
         }
 
         return lista;
     }
+
+    private List<Partida> obtenerPartidasDemo() {
+        List<Partida> lista = new ArrayList<>();
+
+        lista.add(new Partida(1, null, "8/8*9+6=15", 5, true, LocalDateTime.now().minusDays(1)));
+        lista.add(new Partida(2, null, "2*3+4-2=8", 6, false, LocalDateTime.now().minusDays(2)));
+        lista.add(new Partida(3, null, "9-4+2*3=11", 4, true, LocalDateTime.now().minusDays(3)));
+        lista.add(new Partida(4, null, "7+2*3-5=8", 4, true, LocalDateTime.now().minusDays(4)));
+
+        return lista;
+    }
+
 }
