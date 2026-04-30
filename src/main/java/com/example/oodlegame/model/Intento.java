@@ -3,15 +3,14 @@ package com.example.oodlegame.model;
 public class Intento {
 
     private String expresion;
-    private boolean autenticacion;
-
+    private boolean correcto;
 
     public Intento() {
     }
 
-    public Intento(String expresion, boolean autenticacion) {
+    public Intento(String expresion, boolean correcto) {
         this.expresion = expresion;
-        this.autenticacion = autenticacion;
+        this.correcto = correcto;
     }
 
     public String getExpresion() {
@@ -22,11 +21,11 @@ public class Intento {
         this.expresion = expresion;
     }
 
-    public boolean getAutenticacion() {
-        return autenticacion;
+    public boolean isCorrecto() {
+        return correcto;
     }
 
-    public void setAutenticacion(boolean autenticacion) {
-        this.autenticacion = autenticacion;
+    public void setCorrecto(boolean correcto) {
+        this.correcto = correcto;
     }
 }
