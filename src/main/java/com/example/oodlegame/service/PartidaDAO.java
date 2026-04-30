@@ -30,7 +30,7 @@ public class PartidaDAO {
         }
     }
 
-    public List <Partida> ObtenerPartidasUsuario(int usuarioId) {
+    public List <Partida> obtenerPartidasUsuario(int usuarioId) {
 
         List <Partida> lista = new ArrayList<>();
 
@@ -48,7 +48,7 @@ public class PartidaDAO {
                 partida.setId(rs.getInt("id"));
                 partida.setEcuacionObjetivo(rs.getString("ecuacion_objetivo"));
                 partida.setIntentosUsados(rs.getInt("intentos_usados"));
-                partida.setVictoria(rs.getBoolean("ganada"));
+                partida.setVictoria(rs.getBoolean("victoria"));
                 partida.setFecha(rs.getTimestamp("fecha").toLocalDateTime());
 
                 lista.add(partida);

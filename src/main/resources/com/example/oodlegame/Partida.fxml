@@ -3,247 +3,324 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="800" prefWidth="900" style="-fx-background-color: #FFFFFF;"
+<VBox prefHeight="780" prefWidth="900"
+      style="-fx-background-color: #0F1923;"
       xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.oodlegame.controller.PartidaController">
 
     <padding>
-        <Insets bottom="30" left="30" right="30" top="20" />
+        <Insets bottom="24" left="36" right="36" top="22"/>
     </padding>
 
     <!-- ══════════════════════════════════════════
          HEADER
     ══════════════════════════════════════════ -->
-    <HBox alignment="CENTER_LEFT" prefWidth="840">
+    <HBox alignment="CENTER_LEFT">
+
         <Button fx:id="homeButton" onAction="#onHomeClicked"
-                text="🏠"
+                text="← Menú"
                 style="-fx-background-color: transparent;
-                       -fx-border-color: #0000CC;
-                       -fx-border-radius: 50; -fx-background-radius: 50;
-                       -fx-font-size: 20px; -fx-cursor: hand;
-                       -fx-text-fill: #0000CC; -fx-padding: 6 10 6 10;" />
-        <Region HBox.hgrow="ALWAYS" />
-        <Label text="Ooodle"
-               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #000000;" />
+                       -fx-border-color: #3A5BD9;
+                       -fx-border-radius: 8; -fx-background-radius: 8;
+                       -fx-text-fill: #3A5BD9;
+                       -fx-font-size: 13px; -fx-font-weight: bold;
+                       -fx-cursor: hand; -fx-padding: 6 14 6 14;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Título centrado -->
+        <VBox alignment="CENTER">
+            <Label text="Ooodle"
+                   style="-fx-font-size: 30px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Contador de intentos -->
+        <VBox alignment="CENTER_RIGHT" spacing="2">
+            <Label text="INTENTOS"
+                   style="-fx-font-size: 9px; -fx-font-weight: bold;
+                          -fx-text-fill: #5A7A8A;"/>
+            <HBox spacing="4" alignment="CENTER_RIGHT">
+                <!-- 6 puntos, se colorean desde el controller si se desea -->
+                <Circle fx:id="dot1" radius="5" fill="#3A5BD9"/>
+                <Circle fx:id="dot2" radius="5" fill="#3A5BD9"/>
+                <Circle fx:id="dot3" radius="5" fill="#3A5BD9"/>
+                <Circle fx:id="dot4" radius="5" fill="#3A5BD9"/>
+                <Circle fx:id="dot5" radius="5" fill="#3A5BD9"/>
+                <Circle fx:id="dot6" radius="5" fill="#3A5BD9"/>
+            </HBox>
+        </VBox>
+
     </HBox>
 
-    <Region prefHeight="20" />
+    <!-- Línea decorativa -->
+    <Region prefHeight="3" prefWidth="828"
+            style="-fx-background-color: linear-gradient(to right, transparent, #3A5BD9, transparent);
+                   -fx-background-radius: 2;">
+        <VBox.margin><Insets top="10" bottom="14"/></VBox.margin>
+    </Region>
 
     <!-- ══════════════════════════════════════════════════════════════
          FILAS DE ECUACIÓN
-         Patrón: [rNc1] [rNop1] [rNc2] [rNop2] [rNc3] [rNop3] [rNc4] = [ansN]
-
-         · Los operadores rNopM se asignan en initialize() según la ecuación generada
-         · Los campos rNcM se colorean desde evaluarIntento()
-         · Los ansN muestran el resultado esperado (igual en todas las filas, color rosa)
-         · Solo la fila activa es editable; las demás están bloqueadas
     ══════════════════════════════════════════════════════════════ -->
-    <VBox fx:id="rowsContainer" spacing="10">
+    <VBox fx:id="rowsContainer" spacing="8" alignment="CENTER">
+
+        <!-- ESTILO BASE de cada TextField (fondo oscuro, borde sutil):
+             Al colorear desde el controller usa:
+               CORRECTO  → -fx-background-color: #1A3D2B; -fx-border-color: #6AAA64;
+               PARCIAL   → -fx-background-color: #3D2E10; -fx-border-color: #C9B458;
+               INCORRECTO→ -fx-background-color: #252A30; -fx-border-color: #787C7E;
+               DEFAULT   → -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+        -->
 
         <!-- ─── FILA 1 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r1c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r1op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r1c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r1op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r1c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r1op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r1c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans1" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r1c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535;
+                              -fx-border-color: #1E2D40; -fx-border-width: 2;
+                              -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r1op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r1c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535;
+                              -fx-border-color: #1E2D40; -fx-border-width: 2;
+                              -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r1op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r1c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535;
+                              -fx-border-color: #1E2D40; -fx-border-width: 2;
+                              -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r1op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r1c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold;
+                              -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535;
+                              -fx-border-color: #1E2D40; -fx-border-width: 2;
+                              -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans1" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35;
+                          -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2;
+                          -fx-border-radius: 10;"/>
         </HBox>
 
         <!-- ─── FILA 2 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r2c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r2op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r2c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r2op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r2c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r2op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r2c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans2" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r2c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r2op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r2c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r2op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r2c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r2op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r2c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans2" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35; -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2; -fx-border-radius: 10;"/>
         </HBox>
 
         <!-- ─── FILA 3 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r3c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r3op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r3c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r3op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r3c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r3op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r3c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans3" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r3c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r3op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r3c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r3op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r3c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r3op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r3c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans3" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35; -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2; -fx-border-radius: 10;"/>
         </HBox>
 
         <!-- ─── FILA 4 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r4c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r4op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r4c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r4op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r4c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r4op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r4c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans4" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r4c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r4op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r4c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r4op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r4c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r4op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r4c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans4" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35; -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2; -fx-border-radius: 10;"/>
         </HBox>
 
         <!-- ─── FILA 5 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r5c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r5op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r5c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r5op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r5c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r5op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r5c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans5" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r5c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r5op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r5c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r5op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r5c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r5op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r5c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans5" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35; -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2; -fx-border-radius: 10;"/>
         </HBox>
 
         <!-- ─── FILA 6 ─── -->
-        <HBox alignment="CENTER_LEFT" spacing="8">
-            <TextField fx:id="r6c1" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r6op1" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="-" />
-            <TextField fx:id="r6c2" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r6op2" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="×" />
-            <TextField fx:id="r6c3" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label fx:id="r6op3" alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="+" />
-            <TextField fx:id="r6c4" alignment="CENTER" prefHeight="70" prefWidth="80"
-                       style="-fx-font-size: 22px; -fx-border-color: #CCCCCC;
-                              -fx-border-radius: 6; -fx-background-radius: 6;
-                              -fx-background-color: #FFFFFF;" />
-            <Label alignment="CENTER" prefWidth="20"
-                   style="-fx-font-size: 22px; -fx-text-fill: #999999;" text="=" />
-            <Label fx:id="ans6" prefHeight="53" prefWidth="80" alignment="CENTER">
-                <font><Font size="22.0" /></font>
-            </Label>
+        <HBox alignment="CENTER" spacing="10">
+            <TextField fx:id="r6c1" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r6op1" prefWidth="24" alignment="CENTER" text="+"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r6c2" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r6op2" prefWidth="24" alignment="CENTER" text="−"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r6c3" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label fx:id="r6op3" prefWidth="24" alignment="CENTER" text="×"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <TextField fx:id="r6c4" alignment="CENTER" prefHeight="64" prefWidth="72"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                              -fx-background-color: #1A2535; -fx-border-color: #1E2D40;
+                              -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;"/>
+            <Label alignment="CENTER" prefWidth="24" text="="
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #5A7A8A;"/>
+            <Label fx:id="ans6" prefHeight="64" prefWidth="82" alignment="CENTER"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;
+                          -fx-background-color: #1E1A35; -fx-background-radius: 10;
+                          -fx-border-color: #3A2D6A; -fx-border-width: 2; -fx-border-radius: 10;"/>
         </HBox>
 
     </VBox>
 
-    <Region prefHeight="20" />
+    <Region prefHeight="16"/>
 
     <!-- ══════════════════════════════════════════
-         BOTÓN ENVIAR INTENTO
-         Llama a onEnviarIntento() en el controller
+         LEYENDA DE COLORES + BOTÓN ENVIAR
     ══════════════════════════════════════════ -->
-    <HBox alignment="CENTER">
+    <HBox alignment="CENTER" spacing="32">
+
+        <!-- Leyenda -->
+        <HBox alignment="CENTER" spacing="16">
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Region prefWidth="16" prefHeight="16"
+                        style="-fx-background-color: #6AAA64; -fx-background-radius: 4;"/>
+                <Label text="Correcto"
+                       style="-fx-font-size: 11px; -fx-text-fill: #5A7A8A;"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Region prefWidth="16" prefHeight="16"
+                        style="-fx-background-color: #C9B458; -fx-background-radius: 4;"/>
+                <Label text="Posición incorrecta"
+                       style="-fx-font-size: 11px; -fx-text-fill: #5A7A8A;"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6">
+                <Region prefWidth="16" prefHeight="16"
+                        style="-fx-background-color: #787C7E; -fx-background-radius: 4;"/>
+                <Label text="No está"
+                       style="-fx-font-size: 11px; -fx-text-fill: #5A7A8A;"/>
+            </HBox>
+        </HBox>
+
+        <!-- Botón enviar -->
         <Button text="Enviar"
                 onAction="#onEnviarIntento"
-                prefWidth="180" prefHeight="45"
-                style="-fx-font-size: 18px; -fx-font-weight: bold;
-                       -fx-background-color: #0000CC; -fx-text-fill: #FFFFFF;
-                       -fx-background-radius: 10; -fx-cursor: hand;" />
+                prefWidth="160" prefHeight="44"
+                style="-fx-font-size: 15px; -fx-font-weight: bold;
+                       -fx-background-color: #3A5BD9; -fx-text-fill: #FFFFFF;
+                       -fx-background-radius: 10; -fx-cursor: hand;"/>
+
     </HBox>
 
 </VBox>

@@ -27,12 +27,12 @@ public class LoginController {
     @FXML
     private Hyperlink btnRegistrar;
 
+    private int intentos = 0;
 
     @FXML private void validarLogin() {
 
         String email = txtEmail.getText();
         String password = txtPassword.getText();
-        int intentos = 0;
 
         if (email.isEmpty() || password.isEmpty()){
             showAlert(Alert.AlertType.WARNING, "Complete todos los campos");
@@ -49,8 +49,9 @@ public class LoginController {
             Usuario usuarioEncontrado = dao.buscarEmail(email);
 
             if (usuarioEncontrado != null && usuarioEncontrado.getPassword().equals(passHash)){
+                intentos = 0;
                 showAlert(Alert.AlertType.CONFIRMATION, "Bienvenido " + usuarioEncontrado.getUsername());
-                irMenu(usuarioEncontrado.getUsername());
+                irMenu(usuarioEncontrado);
             } else {
                 showAlert(Alert.AlertType.ERROR, "Correo o contraseña incorrectos");
                 clear();
@@ -83,19 +84,22 @@ public class LoginController {
     }
 
 
-    private void irMenu(String username) {
+    private void irMenu(Usuario usuario) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Menu.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
+
             MenuController menuController = loader.getController();
-            menuController.setUsername(username);
+            menuController.setUsuario(usuario);
+
+            Scene scene = new Scene(root);
             Stage stage = (Stage) btnLogin.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
 
     private void showAlert(Alert.AlertType type, String msg){

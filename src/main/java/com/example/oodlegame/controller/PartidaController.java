@@ -1,13 +1,24 @@
 package com.example.oodlegame.controller;
 
 import com.example.oodlegame.model.Intento;
+import com.example.oodlegame.model.Partida;
+import com.example.oodlegame.model.Usuario;
+import com.example.oodlegame.service.PartidaDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import com.example.oodlegame.model.Usuario;
+import javafx.stage.Stage;
 
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class PartidaController {
@@ -58,8 +69,22 @@ public class PartidaController {
     //Volver al menu
     @FXML
     private void onHomeClicked(){
-        // TODO: navegar a la patalla principal (Menu.fxml)
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Menu.fxml"));
+            Parent root = loader.load();
+
+            MenuController menuController = loader.getController();
+            menuController.setUsuario(usuarioActual);
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) fields[0][0].getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo volver al menú.");
+        }
     }
+
 
     private static final String COLOR_CORRECT = "#6AAA64";
     private static final String COLOR_PARTIAL = "#C9B458";
@@ -85,13 +110,26 @@ public class PartidaController {
     private int resultadoEsperado;
     private int filaActual = 0;
     private boolean juegoTerminado = false;
+    private Usuario usuarioActual;
+    private Partida partidaActual;
+    private List<Intento> intentos = new ArrayList<>();
 
 
-   private TextField[][] fields;
+
+    private TextField[][] fields;
    private Label[][] operadores;
    private Label[] ansLabels;
 
-   @FXML
+    public void setUsuario(Usuario usuario) {
+        this.usuarioActual = usuario;
+
+        if (partidaActual != null) {
+            partidaActual.setUsuario(usuario);
+        }
+    }
+
+
+    @FXML
     public void initialize(){
        fields = new TextField[][] {
                { r1c1, r1c2, r1c3, r1c4 },
@@ -120,6 +158,15 @@ public class PartidaController {
 
        String ecuacion = generarEcuacion();
        parsearEcuacion(ecuacion);
+
+       partidaActual = new Partida();
+       partidaActual.setUsuario(usuarioActual);
+       partidaActual.setEcuacionObjetivo(ecuacion);
+       partidaActual.setIntentosUsados(0);
+       partidaActual.setVictoria(false);
+       partidaActual.setFecha(LocalDateTime.now());
+
+       intentos.clear();
 
        //mostrar operadores en todas llas filas
        for (int fila = 0; fila < 6; fila++){
@@ -172,6 +219,11 @@ public class PartidaController {
                + intento[3];
        boolean correcto = esVictoria(estados);
        Intento intentoObj = new Intento(expresionIntento, correcto);
+       intentos.add(intentoObj);
+
+       if (partidaActual != null) {
+           partidaActual.setIntentosUsados(intentos.size());
+       }
 
 
        //verificar la victoria
@@ -184,13 +236,34 @@ public class PartidaController {
        //avanzar fila o fin del juego
        filaActual++;
        if (filaActual >= 6){
-           juegoTerminado = true;
-           mostrarMensajeFinal(false);
+           finalizarPartida(false);
        }else {
+
            setFilaEditable(filaActual, true);
                fields[filaActual][0].requestFocus();
            }
        }
+
+    private void finalizarPartida(boolean victoria) {
+        juegoTerminado = true;
+
+        if (partidaActual != null) {
+            partidaActual.setVictoria(victoria);
+            partidaActual.setIntentosUsados(intentos.size());
+            partidaActual.setFecha(LocalDateTime.now());
+
+            try {
+                PartidaDAO partidaDAO = new PartidaDAO();
+                partidaDAO.guardarPartida(partidaActual);
+            } catch (Exception e) {
+                e.printStackTrace();
+                mostrarAlerta("Error", "No se pudo guardar la partida.");
+            }
+        }
+
+        mostrarMensajeFinal(victoria);
+    }
+
 
     private int[] leerYValidarFila(int fila) {
         int[] nums = new int[4];

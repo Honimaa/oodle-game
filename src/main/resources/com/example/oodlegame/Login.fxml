@@ -2,76 +2,238 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oodlegame.controller.LoginController">
-   <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: #EAEDE6;" HBox.hgrow="ALWAYS">
-         <children>
-            <Label text="Oodle Game">
-               <font>
-                  <Font size="40.0" />
-               </font></Label>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text="Correco Electrónico">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtEmail">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <Label text="Contraseña">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <PasswordField fx:id="txtPassword">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </PasswordField>
-                  <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#validarLogin" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;" text="Ingresar">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Hyperlink fx:id="btnRegistrar" alignment="CENTER" onAction="#irRegistrar" prefHeight="65.0" prefWidth="367.0" text="Crear una cuenta" textAlignment="CENTER">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="30.0" right="30.0" top="20" />
-                     </VBox.margin>
-                  </Hyperlink>
-               </children>
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.oodlegame.controller.LoginController"
+           prefHeight="503" prefWidth="854"
+           style="-fx-background-color: #0F1923;">
+
+   <!-- ══════════════════════════════════════════
+        FONDO DECORATIVO
+   ══════════════════════════════════════════ -->
+   <Pane mouseTransparent="true">
+
+      <!-- Círculo grande difuso izquierda -->
+      <Circle centerX="-30" centerY="250" radius="220"
+              fill="#1A2535" opacity="0.8"/>
+
+      <!-- Círculo grande difuso derecha -->
+      <Circle centerX="884" centerY="260" radius="200"
+              fill="#111B27" opacity="0.8"/>
+
+      <!-- Acento azul arriba -->
+      <Circle centerX="427" centerY="-40" radius="120"
+              fill="#1E2D55" opacity="0.5"/>
+
+      <!-- Operadores flotantes decorativos -->
+      <Label text="+" layoutX="30" layoutY="40"
+             style="-fx-font-size: 48px; -fx-font-weight: bold;
+                      -fx-text-fill: #3A5BD9; -fx-opacity: 0.18;"/>
+      <Label text="=" layoutX="770" layoutY="50"
+             style="-fx-font-size: 48px; -fx-font-weight: bold;
+                      -fx-text-fill: #6AAA64; -fx-opacity: 0.18;"/>
+      <Label text="×" layoutX="50" layoutY="390"
+             style="-fx-font-size: 48px; -fx-font-weight: bold;
+                      -fx-text-fill: #C9B458; -fx-opacity: 0.18;"/>
+      <Label text="÷" layoutX="760" layoutY="400"
+             style="-fx-font-size: 48px; -fx-font-weight: bold;
+                      -fx-text-fill: #9B59B6; -fx-opacity: 0.18;"/>
+
+      <!-- Línea vertical separadora central sutil -->
+      <Rectangle x="426" y="60" width="2" height="383"
+                 fill="#1E2D40"/>
+
+   </Pane>
+
+   <!-- ══════════════════════════════════════════
+        LAYOUT PRINCIPAL: dos columnas
+   ══════════════════════════════════════════ -->
+   <HBox>
+
+      <!-- ─── COLUMNA IZQUIERDA: Branding ─── -->
+      <VBox alignment="CENTER" spacing="16"
+            prefWidth="427" prefHeight="503"
+            style="-fx-background-color: transparent;">
+         <padding><Insets left="50" right="40"/></padding>
+
+         <!-- Badge del juego -->
+         <HBox alignment="CENTER" spacing="8">
+            <Label text="◆"
+                   style="-fx-font-size: 10px; -fx-text-fill: #3A5BD9;"/>
+            <Label text="MATH PUZZLE GAME"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold;
+                              -fx-text-fill: #3A5BD9; -fx-letter-spacing: 2;"/>
+            <Label text="◆"
+                   style="-fx-font-size: 10px; -fx-text-fill: #3A5BD9;"/>
+         </HBox>
+
+         <!-- Título grande -->
+         <Label text="Ooodle"
+                style="-fx-font-size: 64px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;"/>
+
+         <!-- Ecuación decorativa animada -->
+         <HBox alignment="CENTER" spacing="10">
+            <Label text="?"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                              -fx-text-fill: #3A5BD9;
+                              -fx-background-color: #1A2535;
+                              -fx-background-radius: 8;
+                              -fx-padding: 4 12 4 12;"/>
+            <Label text="×"
+                   style="-fx-font-size: 20px; -fx-text-fill: #5A7A8A;"/>
+            <Label text="?"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                              -fx-text-fill: #C9B458;
+                              -fx-background-color: #1A2535;
+                              -fx-background-radius: 8;
+                              -fx-padding: 4 12 4 12;"/>
+            <Label text="+"
+                   style="-fx-font-size: 20px; -fx-text-fill: #5A7A8A;"/>
+            <Label text="?"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                              -fx-text-fill: #6AAA64;
+                              -fx-background-color: #1A2535;
+                              -fx-background-radius: 8;
+                              -fx-padding: 4 12 4 12;"/>
+         </HBox>
+
+         <!-- Descripción -->
+         <Label text="Adivina la ecuación en 6 intentos"
+                wrapText="true"
+                style="-fx-font-size: 13px; -fx-text-fill: #5A7A8A;
+                          -fx-text-alignment: center;"
+                maxWidth="300"/>
+
+         <!-- Pastillas de colores (leyenda) -->
+         <HBox alignment="CENTER" spacing="8">
+            <VBox alignment="CENTER" spacing="4">
+               <Region prefWidth="36" prefHeight="8"
+                       style="-fx-background-color: #6AAA64; -fx-background-radius: 4;"/>
+               <Label text="Correcto"
+                      style="-fx-font-size: 9px; -fx-text-fill: #5A7A8A;"/>
             </VBox>
-         </children>
+            <VBox alignment="CENTER" spacing="4">
+               <Region prefWidth="36" prefHeight="8"
+                       style="-fx-background-color: #C9B458; -fx-background-radius: 4;"/>
+               <Label text="Parcial"
+                      style="-fx-font-size: 9px; -fx-text-fill: #5A7A8A;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="4">
+               <Region prefWidth="36" prefHeight="8"
+                       style="-fx-background-color: #787C7E; -fx-background-radius: 4;"/>
+               <Label text="Incorrecto"
+                      style="-fx-font-size: 9px; -fx-text-fill: #5A7A8A;"/>
+            </VBox>
+         </HBox>
+
       </VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: #E9EAE3;" HBox.hgrow="ALWAYS">
-         <children>
-            <ImageView fitHeight="290.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/Logo.png" />
-               </image>
-            </ImageView>
-         </children></VBox>
-   </children>
-</HBox>
+
+      <!-- ─── COLUMNA DERECHA: Formulario ─── -->
+      <VBox alignment="CENTER" spacing="0"
+            prefWidth="427" prefHeight="503"
+            style="-fx-background-color: #111B27;">
+         <padding><Insets left="48" right="48" top="48" bottom="48"/></padding>
+
+         <!-- Encabezado del form -->
+         <Label text="Iniciar Sesión"
+                style="-fx-font-size: 26px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;">
+            <VBox.margin><Insets bottom="4"/></VBox.margin>
+         </Label>
+         <Label text="Ingresa tus credenciales para continuar"
+                style="-fx-font-size: 12px; -fx-text-fill: #5A7A8A;">
+            <VBox.margin><Insets bottom="28"/></VBox.margin>
+         </Label>
+
+         <!-- Label: Correo -->
+         <Label text="Correo Electrónico"
+                style="-fx-font-size: 12px; -fx-font-weight: bold;
+                          -fx-text-fill: #8BA3B8;">
+            <VBox.margin><Insets bottom="6"/></VBox.margin>
+         </Label>
+
+         <!-- Campo: Correo -->
+         <TextField fx:id="txtEmail"
+                    promptText="correo@ejemplo.com"
+                    style="-fx-background-color: #1A2535;
+                              -fx-border-color: #1E2D40;
+                              -fx-border-radius: 8; -fx-background-radius: 8;
+                              -fx-border-width: 2;
+                              -fx-text-fill: #FFFFFF;
+                              -fx-prompt-text-fill: #3A4A5A;
+                              -fx-font-size: 14px;
+                              -fx-padding: 10 14 10 14;">
+            <VBox.margin><Insets bottom="16"/></VBox.margin>
+         </TextField>
+
+         <!-- Label: Contraseña -->
+         <Label text="Contraseña"
+                style="-fx-font-size: 12px; -fx-font-weight: bold;
+                          -fx-text-fill: #8BA3B8;">
+            <VBox.margin><Insets bottom="6"/></VBox.margin>
+         </Label>
+
+         <!-- Campo: Contraseña -->
+         <PasswordField fx:id="txtPassword"
+                        promptText="••••••••"
+                        style="-fx-background-color: #1A2535;
+                                  -fx-border-color: #1E2D40;
+                                  -fx-border-radius: 8; -fx-background-radius: 8;
+                                  -fx-border-width: 2;
+                                  -fx-text-fill: #FFFFFF;
+                                  -fx-prompt-text-fill: #3A4A5A;
+                                  -fx-font-size: 14px;
+                                  -fx-padding: 10 14 10 14;">
+            <VBox.margin><Insets bottom="24"/></VBox.margin>
+         </PasswordField>
+
+         <!-- Botón: Ingresar -->
+         <Button fx:id="btnLogin"
+                 text="Ingresar"
+                 onAction="#validarLogin"
+                 maxWidth="1.7976931348623157E308"
+                 style="-fx-background-color: #3A5BD9;
+                           -fx-text-fill: #FFFFFF;
+                           -fx-font-size: 15px; -fx-font-weight: bold;
+                           -fx-background-radius: 10;
+                           -fx-cursor: hand;
+                           -fx-padding: 13 0 13 0;">
+            <VBox.margin><Insets bottom="14"/></VBox.margin>
+         </Button>
+
+         <!-- Separador con texto -->
+         <HBox alignment="CENTER" spacing="10">
+            <Region HBox.hgrow="ALWAYS"
+                    prefHeight="1"
+                    style="-fx-background-color: #1E2D40;"/>
+            <Label text="¿No tienes cuenta?"
+                   style="-fx-font-size: 11px; -fx-text-fill: #3A4A5A;"/>
+            <Region HBox.hgrow="ALWAYS"
+                    prefHeight="1"
+                    style="-fx-background-color: #1E2D40;"/>
+            <VBox.margin><Insets bottom="10"/></VBox.margin>
+         </HBox>
+
+         <!-- Hyperlink: Crear cuenta -->
+         <Hyperlink fx:id="btnRegistrar"
+                    text="Crear una cuenta"
+                    onAction="#irRegistrar"
+                    maxWidth="1.7976931348623157E308"
+                    style="-fx-border-color: #1E2D40;
+                              -fx-border-radius: 10; -fx-background-radius: 10;
+                              -fx-border-width: 2;
+                              -fx-background-color: transparent;
+                              -fx-text-fill: #3A5BD9;
+                              -fx-font-size: 13px; -fx-font-weight: bold;
+                              -fx-alignment: center;
+                              -fx-padding: 10 0 10 0;"/>
+
+      </VBox>
+   </HBox>
+
+</StackPane>

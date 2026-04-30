@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import com.example.oodlegame.model.Usuario;
+
 
 public class MenuController {
 
@@ -22,18 +24,23 @@ public class MenuController {
     @FXML
     private Label welcome;
 
+    private Usuario usuarioActual;
 
-    public void setUsername(String username){
-        welcome.setText("Bienvenido, " + username + "!");
+    public void setUsuario(Usuario usuario){
+        this.usuarioActual = usuario;
+        welcome.setText("Bienvenido, " + usuario.getUsername() + "!");
     }
 
-
-    @FXML private void irPartida(){
+    @FXML
+    private void irPartida(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Partida.fxml"));
             Parent root = loader.load();
+
+            PartidaController partidaController = loader.getController();
+            partidaController.setUsuario(usuarioActual);
+
             Scene scene = new Scene(root);
-            LoginController LoginController = loader.getController();
             Stage stage = (Stage) btnNewMatch.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
@@ -41,18 +48,24 @@ public class MenuController {
         }
     }
 
-    @FXML private void irHistorial(){
+
+    @FXML
+    private void irHistorial(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oodlegame/Historial.fxml"));
             Parent root = loader.load();
+
+            HistorialController historialController = loader.getController();
+            historialController.setUsuario(usuarioActual);
+
             Scene scene = new Scene(root);
-            LoginController LoginController = loader.getController();
             Stage stage = (Stage) btnHistory.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
 
     @FXML private void cerrarSesion(){

@@ -53,6 +53,11 @@ public class RegistroController {
             return;
         }
 
+        if (!pass.equals(npass)){
+            showAlert(Alert.AlertType.WARNING, "Las contraseñas no coinciden");
+            return;
+        }
+
         try {
 
             if(usuarioDAO.duplicateUser(user)){
