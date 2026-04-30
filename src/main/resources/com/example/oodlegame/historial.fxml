@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<!--
+    HistorialController debe:
+      · poblar tablaHistorial con ObservableList<Partida> en initialize()
+      · configurar cellValueFactory de cada columna
+      · actualizar lblTotalPartidas, lblVictorias, lblPromedioIntentos
+-->
+
+<VBox prefHeight="700" prefWidth="860"
+      style="-fx-background-color: #0F1923;"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.oodlegame.controller.HistorialController">
+
+    <padding>
+        <Insets bottom="28" left="36" right="36" top="24"/>
+    </padding>
+
+    <!-- ══════════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════ -->
+    <HBox alignment="CENTER_LEFT">
+
+        <Button fx:id="backButton" onAction="#onVolverClicked"
+                text="← Menú"
+                style="-fx-background-color: transparent;
+                       -fx-border-color: #3A5BD9;
+                       -fx-border-radius: 8; -fx-background-radius: 8;
+                       -fx-text-fill: #3A5BD9;
+                       -fx-font-size: 13px; -fx-font-weight: bold;
+                       -fx-cursor: hand; -fx-padding: 6 14 6 14;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <VBox alignment="CENTER">
+            <Label text="Ooodle"
+                   style="-fx-font-size: 30px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Botón limpiar alineado a la derecha del header -->
+        <Button fx:id="btnLimpiar" onAction="#onLimpiarHistorial"
+                text="🗑  Limpiar"
+                style="-fx-background-color: transparent;
+                       -fx-border-color: #A04040;
+                       -fx-border-radius: 8; -fx-background-radius: 8;
+                       -fx-text-fill: #C05050;
+                       -fx-font-size: 12px; -fx-font-weight: bold;
+                       -fx-cursor: hand; -fx-padding: 6 14 6 14;"/>
+    </HBox>
+
+    <!-- Línea decorativa -->
+    <Region prefHeight="3"
+            style="-fx-background-color: linear-gradient(to right, transparent, #3A5BD9, transparent);
+                   -fx-background-radius: 2;">
+        <VBox.margin><Insets top="10" bottom="18"/></VBox.margin>
+    </Region>
+
+    <!-- ══════════════════════════════════════════
+         TARJETAS DE ESTADÍSTICAS
+    ══════════════════════════════════════════ -->
+    <HBox spacing="14">
+
+        <!-- Total partidas -->
+        <VBox alignment="CENTER" spacing="4"
+              HBox.hgrow="ALWAYS" prefHeight="78"
+              style="-fx-background-color: #1A2535;
+                     -fx-background-radius: 12;
+                     -fx-border-color: #1E3A5F;
+                     -fx-border-radius: 12; -fx-border-width: 1;">
+            <padding><Insets top="14" bottom="14" left="16" right="16"/></padding>
+            <Label fx:id="lblTotalPartidas" text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                          -fx-text-fill: #FFFFFF;"/>
+            <Label text="PARTIDAS JUGADAS"
+                   style="-fx-font-size: 9px; -fx-font-weight: bold;
+                          -fx-text-fill: #5A7A8A;"/>
+        </VBox>
+
+        <!-- Victorias -->
+        <VBox alignment="CENTER" spacing="4"
+              HBox.hgrow="ALWAYS" prefHeight="78"
+              style="-fx-background-color: #1A2535;
+                     -fx-background-radius: 12;
+                     -fx-border-color: #1E5F3A;
+                     -fx-border-radius: 12; -fx-border-width: 1;">
+            <padding><Insets top="14" bottom="14" left="16" right="16"/></padding>
+            <Label fx:id="lblVictorias" text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                          -fx-text-fill: #6AAA64;"/>
+            <Label text="VICTORIAS"
+                   style="-fx-font-size: 9px; -fx-font-weight: bold;
+                          -fx-text-fill: #5A7A8A;"/>
+        </VBox>
+
+        <!-- Derrotas -->
+        <VBox alignment="CENTER" spacing="4"
+              HBox.hgrow="ALWAYS" prefHeight="78"
+              style="-fx-background-color: #1A2535;
+                     -fx-background-radius: 12;
+                     -fx-border-color: #5F1E1E;
+                     -fx-border-radius: 12; -fx-border-width: 1;">
+            <padding><Insets top="14" bottom="14" left="16" right="16"/></padding>
+            <Label fx:id="lblDerrotas" text="0"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                          -fx-text-fill: #C05050;"/>
+            <Label text="DERROTAS"
+                   style="-fx-font-size: 9px; -fx-font-weight: bold;
+                          -fx-text-fill: #5A7A8A;"/>
+        </VBox>
+
+        <!-- Promedio intentos -->
+        <VBox alignment="CENTER" spacing="4"
+              HBox.hgrow="ALWAYS" prefHeight="78"
+              style="-fx-background-color: #1A2535;
+                     -fx-background-radius: 12;
+                     -fx-border-color: #5F4A1E;
+                     -fx-border-radius: 12; -fx-border-width: 1;">
+            <padding><Insets top="14" bottom="14" left="16" right="16"/></padding>
+            <Label fx:id="lblPromedioIntentos" text="—"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold;
+                          -fx-text-fill: #C9B458;"/>
+            <Label text="PROM. INTENTOS"
+                   style="-fx-font-size: 9px; -fx-font-weight: bold;
+                          -fx-text-fill: #5A7A8A;"/>
+        </VBox>
+
+    </HBox>
+
+    <Region prefHeight="18"/>
+
+    <!-- ══════════════════════════════════════════
+         TABLA
+         fx:id de columnas para asignar cellValueFactory
+         desde HistorialController.initialize()
+    ══════════════════════════════════════════ -->
+    <TableView fx:id="tablaHistorial"
+               VBox.vgrow="ALWAYS"
+               style="-fx-background-color: #1A2535;
+                      -fx-border-color: #1E2D40;
+                      -fx-border-radius: 12;
+                      -fx-background-radius: 12;
+                      -fx-table-cell-border-color: transparent;">
+
+        <columns>
+
+            <!-- Fecha -->
+            <TableColumn fx:id="colFecha"
+                         text="FECHA"
+                         prefWidth="168"
+                         style="-fx-alignment: CENTER-LEFT;"/>
+
+            <!-- Ecuación -->
+            <TableColumn fx:id="colEcuacion"
+                         text="ECUACIÓN"
+                         prefWidth="240"
+                         style="-fx-alignment: CENTER;"/>
+
+            <!-- Resultado ganó/perdió -->
+            <TableColumn fx:id="colResultado"
+                         text="RESULTADO"
+                         prefWidth="138"
+                         style="-fx-alignment: CENTER;"/>
+
+            <!-- Intentos usados -->
+            <TableColumn fx:id="colIntentos"
+                         text="INTENTOS"
+                         prefWidth="142"
+                         style="-fx-alignment: CENTER;"/>
+
+        </columns>
+
+        <!-- Placeholder cuando no hay datos -->
+        <placeholder>
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="📋"
+                       style="-fx-font-size: 40px;"/>
+                <Label text="Aún no tienes partidas guardadas"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;
+                              -fx-text-fill: #FFFFFF;"/>
+                <Label text="¡Juega tu primera partida y vuelve aquí!"
+                       style="-fx-font-size: 12px; -fx-text-fill: #5A7A8A;"/>
+            </VBox>
+        </placeholder>
+
+    </TableView>
+
+</VBox>
