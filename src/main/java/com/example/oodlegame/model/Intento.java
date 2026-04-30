@@ -4,13 +4,15 @@ public class Intento {
 
     private String expresion;
     private boolean correcto;
+    private int numeroIntento;
 
     public Intento() {
     }
 
-    public Intento(String expresion, boolean correcto) {
+    public Intento(String expresion, boolean correcto, int numeroIntento) {
         this.expresion = expresion;
         this.correcto = correcto;
+        this.numeroIntento = numeroIntento;
     }
 
     public String getExpresion() {
@@ -27,5 +29,13 @@ public class Intento {
 
     public void setCorrecto(boolean correcto) {
         this.correcto = correcto;
+    }
+
+    public int getNumeroIntento() {
+        return numeroIntento;
+    }
+
+    public void setNumeroIntento(int numeroIntento) {
+        this.numeroIntento = numeroIntento;
     }
 }

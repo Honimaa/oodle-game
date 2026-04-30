@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="cambios a las vistas y creacion del controlador de historial">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oodlegame/historial.fxml" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Cambios en el controllador de partida para adaptarse a la nueva vista">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -464,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777525194813</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Cambios en el controllador de partida para adaptarse a la nueva vista">
+      <option name="closed" value="true" />
+      <created>1777525599287</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1777525599287</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Readme modificado con los mockups" />
     <MESSAGE value="diagramas uml y workflow" />
     <MESSAGE value="guia README" />
     <MESSAGE value="x" />
@@ -493,6 +500,7 @@
     <MESSAGE value="Arreglo de bugs, para dejar toda la partida funcional" />
     <MESSAGE value="Correccion de las entidades, para evitar futuros bugs" />
     <MESSAGE value="cambios a las vistas y creacion del controlador de historial" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios a las vistas y creacion del controlador de historial" />
+    <MESSAGE value="Cambios en el controllador de partida para adaptarse a la nueva vista" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en el controllador de partida para adaptarse a la nueva vista" />
   </component>
 </project>

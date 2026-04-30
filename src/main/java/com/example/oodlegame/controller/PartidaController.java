@@ -160,8 +160,9 @@ public class PartidaController {
                 + intento[3];
 
         boolean correcto = esVictoria(estados);
-        Intento intentoObj = new Intento(expresionIntento, correcto);
+        Intento intentoObj = new Intento(expresionIntento, correcto, intentos.size() + 1);
         intentos.add(intentoObj);
+
 
         if (partidaActual != null) {
             partidaActual.setIntentosUsados(intentos.size());
