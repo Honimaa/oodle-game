@@ -69,7 +69,9 @@ public class PartidaController {
                     "-fx-border-radius: 10; ";
 
     private Usuario usuarioActual;
-    private Partida partidaActual;
+
+    private Partida partida;
+    private Intento intento;
     private final List<Intento> intentos = new ArrayList<>();
 
     private int[] solucionNums;
@@ -113,8 +115,8 @@ public class PartidaController {
     public void setUsuario(Usuario usuario) {
         this.usuarioActual = usuario;
 
-        if (partidaActual != null) {
-            partidaActual.setUsuario(usuario);
+        if (this.partida != null) {
+            this.partida.setUsuario(usuario);
         }
     }
 
@@ -125,8 +127,8 @@ public class PartidaController {
             Parent root = loader.load();
 
             MenuController menuController = loader.getController();
-            if (usuarioActual != null) {
-                menuController.setUsuario(usuarioActual);
+            if (this.usuarioActual != null) {
+                menuController.setUsuario(this.usuarioActual);
             }
 
             Scene scene = new Scene(root);
@@ -140,32 +142,32 @@ public class PartidaController {
 
     @FXML
     private void onEnviarIntento() {
-        if (juegoTerminado) {
+        if (this.juegoTerminado) {
             return;
         }
 
-        int[] intento = leerYValidarFila(filaActual);
-        if (intento == null) {
+        int[] numerosIntento = leerYValidarFila(this.filaActual);
+        if (numerosIntento == null) {
             return;
         }
 
-        setFilaEditable(filaActual, false);
+        setFilaEditable(this.filaActual, false);
 
-        String[] estados = evaluarIntento(intento);
-        colorearFila(filaActual, estados);
+        String[] estados = evaluarIntento(numerosIntento);
+        colorearFila(this.filaActual, estados);
 
-        String expresionIntento = intento[0] + solucionOps[0]
-                + intento[1] + solucionOps[1]
-                + intento[2] + solucionOps[2]
-                + intento[3];
+        String expresionIntento = numerosIntento[0] + this.solucionOps[0]
+                + numerosIntento[1] + this.solucionOps[1]
+                + numerosIntento[2] + this.solucionOps[2]
+                + numerosIntento[3];
 
         boolean correcto = esVictoria(estados);
-        Intento intentoObj = new Intento(expresionIntento, correcto, intentos.size() + 1);
-        intentos.add(intentoObj);
 
+        this.intento = new Intento(expresionIntento, correcto, this.intentos.size() + 1);
+        this.intentos.add(this.intento);
 
-        if (partidaActual != null) {
-            partidaActual.setIntentosUsados(intentos.size());
+        if (this.partida != null) {
+            this.partida.setIntentosUsados(this.intentos.size());
         }
 
         actualizarDots(false);
@@ -175,41 +177,43 @@ public class PartidaController {
             return;
         }
 
-        filaActual++;
+        this.filaActual++;
 
-        if (filaActual >= 6) {
+        if (this.filaActual >= 6) {
             finalizarPartida(false);
         } else {
-            setFilaEditable(filaActual, true);
+            setFilaEditable(this.filaActual, true);
             actualizarDots(false);
-            fields[filaActual][0].requestFocus();
+            this.fields[this.filaActual][0].requestFocus();
         }
     }
 
     private void iniciarPartida() {
-        filaActual = 0;
-        juegoTerminado = false;
-        intentos.clear();
+        this.filaActual = 0;
+        this.juegoTerminado = false;
+        this.intentos.clear();
 
         String ecuacion = generarEcuacion();
         parsearEcuacion(ecuacion);
 
-        partidaActual = new Partida();
-        partidaActual.setUsuario(usuarioActual);
-        partidaActual.setEcuacionObjetivo(ecuacion);
-        partidaActual.setIntentosUsados(0);
-        partidaActual.setVictoria(false);
-        partidaActual.setFecha(LocalDateTime.now());
+        this.partida = new Partida();
+        this.partida.setUsuario(this.usuarioActual);
+        this.partida.setEcuacionObjetivo(ecuacion);
+        this.partida.setIntentosUsados(0);
+        this.partida.setVictoria(false);
+        this.partida.setFecha(LocalDateTime.now());
+
+        this.intento = null;
 
         for (int fila = 0; fila < 6; fila++) {
             for (int op = 0; op < 3; op++) {
-                operadores[fila][op].setText(simboloDisplay(solucionOps[op]));
-                operadores[fila][op].setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: " + COLOR_TEXT_MUTED + ";");
+                this.operadores[fila][op].setText(simboloDisplay(this.solucionOps[op]));
+                this.operadores[fila][op].setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: " + COLOR_TEXT_MUTED + ";");
             }
         }
 
-        for (Label ans : ansLabels) {
-            ans.setText(String.valueOf(resultadoEsperado));
+        for (Label ans : this.ansLabels) {
+            ans.setText(String.valueOf(this.resultadoEsperado));
             ans.setStyle(RESULT_STYLE_BASE +
                     "-fx-background-color: " + COLOR_TARGET_BG + "; " +
                     "-fx-border-color: " + COLOR_TARGET_BORDER + ";");
@@ -217,7 +221,7 @@ public class PartidaController {
 
         for (int fila = 0; fila < 6; fila++) {
             setFilaEditable(fila, false);
-            for (TextField tf : fields[fila]) {
+            for (TextField tf : this.fields[fila]) {
                 tf.clear();
                 aplicarEstiloDefault(tf);
             }
@@ -225,11 +229,11 @@ public class PartidaController {
 
         setFilaEditable(0, true);
         actualizarDots(false);
-        fields[0][0].requestFocus();
+        this.fields[0][0].requestFocus();
     }
 
     private void configurarCampos() {
-        for (TextField[] fila : fields) {
+        for (TextField[] fila : this.fields) {
             for (TextField tf : fila) {
                 tf.textProperty().addListener((obs, oldValue, newValue) -> {
                     if (!newValue.matches("[1-9]?")) {
@@ -244,7 +248,7 @@ public class PartidaController {
         int[] nums = new int[4];
 
         for (int col = 0; col < 4; col++) {
-            String texto = fields[fila][col].getText().trim();
+            String texto = this.fields[fila][col].getText().trim();
 
             if (texto.isEmpty() || !texto.matches("[1-9]")) {
                 mostrarAlerta("Formato inválido", "Cada casilla debe contener un número del 1 al 9.");
@@ -257,13 +261,13 @@ public class PartidaController {
         return nums;
     }
 
-    private String[] evaluarIntento(int[] intento) {
+    private String[] evaluarIntento(int[] numerosIntento) {
         String[] estados = new String[4];
         boolean[] solucionUsada = new boolean[4];
         boolean[] intentoUsado = new boolean[4];
 
         for (int i = 0; i < 4; i++) {
-            if (intento[i] == solucionNums[i]) {
+            if (numerosIntento[i] == this.solucionNums[i]) {
                 estados[i] = "CORRECT";
                 solucionUsada[i] = true;
                 intentoUsado[i] = true;
@@ -276,7 +280,7 @@ public class PartidaController {
             }
 
             for (int j = 0; j < 4; j++) {
-                if (!solucionUsada[j] && intento[i] == solucionNums[j]) {
+                if (!solucionUsada[j] && numerosIntento[i] == this.solucionNums[j]) {
                     estados[i] = "PARTIAL";
                     solucionUsada[j] = true;
                     intentoUsado[i] = true;
@@ -302,7 +306,7 @@ public class PartidaController {
                 default -> COLOR_WRONG;
             };
 
-            fields[fila][col].setStyle(CELL_STYLE_BASE +
+            this.fields[fila][col].setStyle(CELL_STYLE_BASE +
                     "-fx-background-color: " + color + "; " +
                     "-fx-border-color: " + color + "; " +
                     "-fx-text-fill: #FFFFFF;");
@@ -317,32 +321,32 @@ public class PartidaController {
     }
 
     private void actualizarDots(boolean partidaFinalizada) {
-        for (int i = 0; i < dots.length; i++) {
-            dots[i].setStroke(Color.web(COLOR_DEFAULT_BORDER));
-            dots[i].setStrokeWidth(1.5);
+        for (int i = 0; i < this.dots.length; i++) {
+            this.dots[i].setStroke(Color.web(COLOR_DEFAULT_BORDER));
+            this.dots[i].setStrokeWidth(1.5);
 
-            if (i < intentos.size()) {
-                dots[i].setFill(Color.web(COLOR_BLUE));
-            } else if (!partidaFinalizada && i == filaActual) {
-                dots[i].setFill(Color.web(COLOR_PARTIAL));
+            if (i < this.intentos.size()) {
+                this.dots[i].setFill(Color.web(COLOR_BLUE));
+            } else if (!partidaFinalizada && i == this.filaActual) {
+                this.dots[i].setFill(Color.web(COLOR_PARTIAL));
             } else {
-                dots[i].setFill(Color.web(COLOR_DEFAULT_BG));
+                this.dots[i].setFill(Color.web(COLOR_DEFAULT_BG));
             }
         }
     }
 
     private void finalizarPartida(boolean victoria) {
-        juegoTerminado = true;
+        this.juegoTerminado = true;
 
-        if (partidaActual != null) {
-            partidaActual.setVictoria(victoria);
-            partidaActual.setIntentosUsados(intentos.size());
-            partidaActual.setFecha(LocalDateTime.now());
+        if (this.partida != null) {
+            this.partida.setVictoria(victoria);
+            this.partida.setIntentosUsados(this.intentos.size());
+            this.partida.setFecha(LocalDateTime.now());
 
-            if (usuarioActual != null) {
+            if (this.usuarioActual != null) {
                 try {
                     PartidaDAO partidaDAO = new PartidaDAO();
-                    partidaDAO.guardarPartida(partidaActual);
+                    partidaDAO.guardarPartida(this.partida);
                 } catch (Exception e) {
                     e.printStackTrace();
                     mostrarAlerta("Error", "No se pudo guardar la partida.");
@@ -350,13 +354,13 @@ public class PartidaController {
             }
         }
 
-        for (int i = 0; i < dots.length; i++) {
-            if (i < intentos.size()) {
-                dots[i].setFill(Color.web(victoria ? COLOR_CORRECT : COLOR_WRONG));
+        for (int i = 0; i < this.dots.length; i++) {
+            if (i < this.intentos.size()) {
+                this.dots[i].setFill(Color.web(victoria ? COLOR_CORRECT : COLOR_WRONG));
             } else {
-                dots[i].setFill(Color.web(COLOR_DEFAULT_BG));
+                this.dots[i].setFill(Color.web(COLOR_DEFAULT_BG));
             }
-            dots[i].setStroke(Color.web(victoria ? COLOR_CORRECT : COLOR_WRONG));
+            this.dots[i].setStroke(Color.web(victoria ? COLOR_CORRECT : COLOR_WRONG));
         }
 
         actualizarDots(true);
@@ -367,10 +371,10 @@ public class PartidaController {
         String titulo = victoria ? "Ganaste" : "Fin del juego";
         String mensaje = victoria
                 ? "Encontraste la ecuación correcta."
-                : "La ecuación era: " + solucionNums[0] + " " + simboloDisplay(solucionOps[0])
-                + " " + solucionNums[1] + " " + simboloDisplay(solucionOps[1])
-                + " " + solucionNums[2] + " " + simboloDisplay(solucionOps[2])
-                + " " + solucionNums[3] + " = " + resultadoEsperado;
+                : "La ecuación era: " + this.solucionNums[0] + " " + simboloDisplay(this.solucionOps[0])
+                + " " + this.solucionNums[1] + " " + simboloDisplay(this.solucionOps[1])
+                + " " + this.solucionNums[2] + " " + simboloDisplay(this.solucionOps[2])
+                + " " + this.solucionNums[3] + " = " + this.resultadoEsperado;
 
         mostrarAlerta(titulo, mensaje);
     }
@@ -457,11 +461,11 @@ public class PartidaController {
 
     private void parsearEcuacion(String ecuacion) {
         String[] partes = ecuacion.split("=");
-        resultadoEsperado = Integer.parseInt(partes[1]);
+        this.resultadoEsperado = Integer.parseInt(partes[1]);
 
         String expr = partes[0];
-        solucionNums = new int[4];
-        solucionOps = new String[3];
+        this.solucionNums = new int[4];
+        this.solucionOps = new String[3];
 
         int numIdx = 0;
         int opIdx = 0;
@@ -470,9 +474,9 @@ public class PartidaController {
             char ch = expr.charAt(i);
 
             if (Character.isDigit(ch)) {
-                solucionNums[numIdx++] = ch - '0';
+                this.solucionNums[numIdx++] = ch - '0';
             } else {
-                solucionOps[opIdx++] = String.valueOf(ch);
+                this.solucionOps[opIdx++] = String.valueOf(ch);
             }
         }
     }
@@ -496,7 +500,7 @@ public class PartidaController {
     }
 
     private void setFilaEditable(int fila, boolean editable) {
-        for (TextField tf : fields[fila]) {
+        for (TextField tf : this.fields[fila]) {
             tf.setEditable(editable);
             tf.setMouseTransparent(!editable);
             tf.setFocusTraversable(editable);

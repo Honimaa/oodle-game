@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Preparacion para presentar la aplicacion el dia de manana" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -494,11 +494,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777528543225</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares">
+      <option name="closed" value="true" />
+      <created>1777528781859</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1777528781859</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="vistas registro y login" />
     <MESSAGE value="logica de registro y creacion de usuarios en la base de datos" />
     <MESSAGE value="agregado metodo para buscar por nombre de usuario" />
     <MESSAGE value="Correccion de interfaz y busqueda de usuarios" />
@@ -523,6 +530,7 @@
     <MESSAGE value="Cambios en la entidad intento" />
     <MESSAGE value="Ultimas correcciones historial" />
     <MESSAGE value="Preparacion para presentar la aplicacion el dia de manana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preparacion para presentar la aplicacion el dia de manana" />
+    <MESSAGE value="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
   </component>
 </project>
