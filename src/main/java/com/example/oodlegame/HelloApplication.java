@@ -18,7 +18,20 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+
+    @Override
+    public void stop() {
+        try {
+            System.out.println("Cerrando aplicación y liberando recursos...");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void main(String[] args) {
         launch();
     }
+
+
 }

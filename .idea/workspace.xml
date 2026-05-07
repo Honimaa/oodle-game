@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Cambios al controlador de partida para seguir las indicaciones del profesor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,14 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Estructura del proyecto inicial y bases de los DAO">
-      <option name="closed" value="true" />
-      <created>1771792335459</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1771792335459</updated>
     </task>
     <task id="LOCAL-00002" summary="Estructura del proyecto inicial y bases de los DAO">
       <option name="closed" value="true" />
@@ -502,11 +494,18 @@
       <option name="project" value="LOCAL" />
       <updated>1777528781859</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Cambios al controlador de partida para seguir las indicaciones del profesor">
+      <option name="closed" value="true" />
+      <created>1778133714037</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1778133714037</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logica de registro y creacion de usuarios en la base de datos" />
     <MESSAGE value="agregado metodo para buscar por nombre de usuario" />
     <MESSAGE value="Correccion de interfaz y busqueda de usuarios" />
     <MESSAGE value="requisitos de contrasena" />
@@ -531,6 +530,7 @@
     <MESSAGE value="Ultimas correcciones historial" />
     <MESSAGE value="Preparacion para presentar la aplicacion el dia de manana" />
     <MESSAGE value="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
+    <MESSAGE value="Cambios al controlador de partida para seguir las indicaciones del profesor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios al controlador de partida para seguir las indicaciones del profesor" />
   </component>
 </project>
