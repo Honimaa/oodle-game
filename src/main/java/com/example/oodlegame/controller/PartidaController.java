@@ -4,6 +4,7 @@ import com.example.oodlegame.model.Intento;
 import com.example.oodlegame.model.Partida;
 import com.example.oodlegame.model.Usuario;
 import com.example.oodlegame.service.PartidaDAO;
+import com.example.oodlegame.util.JuegoValidator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -250,7 +250,7 @@ public class PartidaController {
         for (int col = 0; col < 4; col++) {
             String texto = this.fields[fila][col].getText().trim();
 
-            if (texto.isEmpty() || !texto.matches("[1-9]")) {
+            if (!JuegoValidator.esNumeroValido(texto)) {
                 mostrarAlerta("Formato inválido", "Cada casilla debe contener un número del 1 al 9.");
                 return null;
             }
@@ -262,40 +262,7 @@ public class PartidaController {
     }
 
     private String[] evaluarIntento(int[] numerosIntento) {
-        String[] estados = new String[4];
-        boolean[] solucionUsada = new boolean[4];
-        boolean[] intentoUsado = new boolean[4];
-
-        for (int i = 0; i < 4; i++) {
-            if (numerosIntento[i] == this.solucionNums[i]) {
-                estados[i] = "CORRECT";
-                solucionUsada[i] = true;
-                intentoUsado[i] = true;
-            }
-        }
-
-        for (int i = 0; i < 4; i++) {
-            if (intentoUsado[i]) {
-                continue;
-            }
-
-            for (int j = 0; j < 4; j++) {
-                if (!solucionUsada[j] && numerosIntento[i] == this.solucionNums[j]) {
-                    estados[i] = "PARTIAL";
-                    solucionUsada[j] = true;
-                    intentoUsado[i] = true;
-                    break;
-                }
-            }
-        }
-
-        for (int i = 0; i < 4; i++) {
-            if (estados[i] == null) {
-                estados[i] = "WRONG";
-            }
-        }
-
-        return estados;
+        return JuegoValidator.evaluarIntento(numerosIntento, this.solucionNums);
     }
 
     private void colorearFila(int fila, String[] estados) {
@@ -412,51 +379,11 @@ public class PartidaController {
     }
 
     private static boolean esDivisionValida(int a, String op1, int b, String op2, int c, String op3, int d) {
-        int[] nums = { a, b, c, d };
-        String[] opArr = { op1, op2, op3 };
-
-        for (int i = 0; i < opArr.length; i++) {
-            if (opArr[i].equals("/")) {
-                if (nums[i + 1] == 0 || nums[i] % nums[i + 1] != 0) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+        return JuegoValidator.esDivisionValida(a, op1, b, op2, c, op3, d);
     }
 
     private static int calcularResultado(int a, String op1, int b, String op2, int c, String op3, int d) {
-        int[] nums = { a, b, c, d };
-        String[] opArr = { op1, op2, op3 };
-
-        for (int i = 0; i < opArr.length; i++) {
-            if (opArr[i].equals("*") || opArr[i].equals("/")) {
-                int val = opArr[i].equals("*") ? nums[i] * nums[i + 1] : nums[i] / nums[i + 1];
-                nums[i] = val;
-
-                for (int j = i + 1; j < nums.length - 1; j++) {
-                    nums[j] = nums[j + 1];
-                    opArr[j - 1] = opArr[j];
-                }
-
-                opArr = Arrays.copyOf(opArr, opArr.length - 1);
-                nums = Arrays.copyOf(nums, nums.length - 1);
-                i--;
-            }
-        }
-
-        int resultado = nums[0];
-
-        for (int i = 0; i < opArr.length; i++) {
-            if (opArr[i].equals("+")) {
-                resultado += nums[i + 1];
-            } else if (opArr[i].equals("-")) {
-                resultado -= nums[i + 1];
-            }
-        }
-
-        return resultado;
+        return JuegoValidator.calcularResultado(a, op1, b, op2, c, op3, d);
     }
 
     private void parsearEcuacion(String ecuacion) {
@@ -490,13 +417,7 @@ public class PartidaController {
     }
 
     private boolean esVictoria(String[] estados) {
-        for (String e : estados) {
-            if (!e.equals("CORRECT")) {
-                return false;
-            }
-        }
-
-        return true;
+        return JuegoValidator.esVictoria(estados);
     }
 
     private void setFilaEditable(int fila, boolean editable) {

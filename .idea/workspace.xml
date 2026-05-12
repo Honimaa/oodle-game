@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="arreglos a los diagramas y al README">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Actualizacion a los mockups">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/util/JuegoValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/oodlegame/util/JuegoValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,26 +60,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
-    &quot;Maven.oodleGame [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.oodleGame [compile].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Camilo/Downloads/JavaFxMySQL-main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "Maven.oodleGame [clean].executor": "Run",
+    "Maven.oodleGame [compile].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Camilo/IdeaProjects/oodleGame/docs/mockups",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\docs\mockups" />
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\src\main\resources\images" />
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\docs\symbols" />
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\src\main\resources\com\example\oodlegame" />
-      <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\docs\mockups" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\src\main\resources\com\example\oodlegame" />
@@ -111,14 +116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Estructura del proyecto inicial y bases de los DAO">
-      <option name="closed" value="true" />
-      <created>1771895315590</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1771895315590</updated>
     </task>
     <task id="LOCAL-00005" summary="Configuracion de los dao y de los modelo">
       <option name="closed" value="true" />
@@ -504,11 +501,18 @@
       <option name="project" value="LOCAL" />
       <updated>1778564906820</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Actualizacion a los mockups">
+      <option name="closed" value="true" />
+      <created>1778565589918</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1778565589918</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="requisitos de contrasena" />
     <MESSAGE value="Hash password" />
     <MESSAGE value="logica de login" />
     <MESSAGE value="conteo de intentos de login" />
@@ -533,6 +537,7 @@
     <MESSAGE value="Cambios al controlador de partida para seguir las indicaciones del profesor" />
     <MESSAGE value="Liberacion correcta de recursos al cerrar la aplicacion" />
     <MESSAGE value="arreglos a los diagramas y al README" />
-    <option name="LAST_COMMIT_MESSAGE" value="arreglos a los diagramas y al README" />
+    <MESSAGE value="Actualizacion a los mockups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion a los mockups" />
   </component>
 </project>
