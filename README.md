@@ -8,9 +8,11 @@ Developed for the course "Práctica Aplicada a Sistemas".
 ## 1. Description
 
 Oodle Game is a desktop application developed in Java 21 using JavaFX 21.  
-The system implements a mathematical puzzle game with user authentication and persistence using a MySQL database.
+The system implements a mathematical puzzle game where users must guess the hidden equation in a maximum of six attempts.
 
-The project follows a layered architecture based on the MVC pattern and the DAO design pattern to ensure separation of concerns, maintainability, and scalability.
+The application includes user registration, login, match history, and persistence using a MySQL database.
+
+The project follows a layered architecture based on the MVC pattern and the DAO design pattern to separate the user interface, application logic, data models, and database access.
 
 ---
 
@@ -22,7 +24,7 @@ The project follows a layered architecture based on the MVC pattern and the DAO 
 - MySQL 8
 - JDBC
 - Git and GitHub
-- PlantUML (for UML modeling)
+- PlantUML
 
 ---
 
@@ -41,17 +43,21 @@ Before running the project, ensure the following software is installed:
 
 The database schema required to run the project is included in the repository.
 
-Location of the script:
+Script location:
 
+```text
 docs/database/schema.sql
+```
 
 ### Step-by-step database setup
 
 1. Open MySQL Workbench or any MySQL client.
 2. Connect to your local MySQL server.
-3. Open the file located in the repository:
+3. Open the file located at:
 
-   docs/database/schema.sql
+```text
+docs/database/schema.sql
+```
 
 4. Execute the entire script.
 
@@ -67,7 +73,8 @@ Enter your MySQL password when prompted.
 
 ### Example of schema.sql content
 
-If you have not created it yet, your `schema.sql` file should contain something similar to the following:
+The current database design stores registered users and completed matches.  
+Attempts are managed in memory during the game and are not stored in a separate table.
 
 ```sql
 CREATE DATABASE IF NOT EXISTS oodle_game;
@@ -76,16 +83,17 @@ USE oodle_game;
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
-    username VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS partidas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    resultado VARCHAR(50),
-    puntaje INT,
+    ecuacion_objetivo VARCHAR(50) NOT NULL,
+    intentos_usados INT NOT NULL,
+    victoria BOOLEAN NOT NULL,
+    fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 ```
@@ -96,7 +104,9 @@ CREATE TABLE IF NOT EXISTS partidas (
 
 After creating the database and tables, configure the connection in:
 
-ConexionBD.java
+```text
+src/main/java/com/example/oodlegame/util/ConexionBD.java
+```
 
 ```java
 private static final String URL = "jdbc:mysql://localhost:3306/oodle_game";
@@ -110,13 +120,17 @@ Make sure the database name matches the one defined in `schema.sql`.
 
 ## 5. How to Run the Project
 
-### Option 1 – Using IntelliJ IDEA
+### Option 1 - Using IntelliJ IDEA
 
 1. Open the project.
 2. Wait for Maven to download dependencies.
-3. Run the main class `HelloApplication.java`.
+3. Run the main class:
 
-### Option 2 – Using Terminal
+```text
+src/main/java/com/example/oodlegame/HelloApplication.java
+```
+
+### Option 2 - Using Terminal
 
 From the root directory of the project:
 
@@ -131,21 +145,20 @@ mvn javafx:run
 
 The system is structured in layers as follows:
 
-- **model**: System entities (Usuario, Partida).
-- **dao**: Data access layer (UsuarioDAO, PartidaDAO, ConexionBD).
-- **service**: Business logic layer.
-- **controller**: JavaFX controllers.
-- **resources**: FXML views and global CSS styles.
-- **docs**: Documentation, mockups, and UML diagrams.
+- **model**: System entities, such as `Usuario`, `Partida`, and `Intento`.
+- **controller**: JavaFX controllers that manage the interaction between the views and the application logic.
+- **service**: Data access classes, such as `UsuarioDAO` and `PartidaDAO`.
+- **util**: Utility classes, such as the database connection class.
+- **resources**: FXML views, images, and CSS styles.
+- **docs**: Project documentation, database scripts, mockups, and UML diagrams.
 
-This architecture ensures modularity and clear separation of responsibilities.
+Although `Intento` exists as a model class, the attempts are handled during the execution of a match and are not persisted in an independent database table.
 
 ---
 
 ## 7. Interface Mockup
 
-The following image represents the general visual style defined through the global CSS.  
-It does not correspond to the final functional screens of the system.
+The following image represents the visual design reference used for the application interface.
 
 ![Mockup UI](docs/mockups/mockupOoodle.png)
 
@@ -154,29 +167,30 @@ It does not correspond to the final functional screens of the system.
 ## 8. UML Diagrams
 
 The system was modeled using PlantUML.  
-Both the source files (`.puml`) and rendered images (`.png`) are included in the repository.
+The rendered diagrams are included in the repository.
 
 ### 8.1 Class Diagram
 
 ![Class Diagram](docs/diagrams/clases.png)
 
-### 8.2 Sequence Diagram – User Registration
+### 8.2 Sequence Diagram - User Registration
 
 ![Sequence Diagram - Registration](docs/diagrams/secuenciaRegistro.png)
 
-### 8.3 Sequence Diagram – Login
+### 8.3 Sequence Diagram - Login
 
 ![Sequence Diagram - Login](docs/diagrams/secuenciaLogin.png)
 
-### 8.4 Sequence Diagram – Play game
+### 8.4 Sequence Diagram - Play Game
 
-![Sequence Diagram - Play game](docs/diagrams/secuenciaPartida.png)
+![Sequence Diagram - Play Game](docs/diagrams/secuenciaPartida.png)
 
-### 8.5 Sequence Diagram - Consult history of matches
+### 8.5 Sequence Diagram - Match History
 
-![Sequence Diagram - Consult history of matches](docs/diagrams/secuenciaHistorial.png)
+![Sequence Diagram - Match History](docs/diagrams/secuenciaHistorial.png)
 
-```markdown
+---
+
 ## 9. Project Structure
 
 ```text
@@ -207,6 +221,7 @@ oodleGame/
 │       └── resources/
 │           ├── com.example.oodlegame/
 │           │   ├── images/
+│           │   ├── hello-view.fxml
 │           │   ├── historial.fxml
 │           │   ├── Login.fxml
 │           │   ├── Menu.fxml
