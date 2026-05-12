@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS partidas (
 After creating the database and tables, configure the connection in:
 
 ```text
-src/main/java/com/example/oodlegame/util/ConexionBD.java
+src/main/java/com/example/oodlegame/service/ConexionBD.java
 ```
 
 ```java
@@ -147,8 +147,8 @@ The system is structured in layers as follows:
 
 - **model**: System entities, such as `Usuario`, `Partida`, and `Intento`.
 - **controller**: JavaFX controllers that manage the interaction between the views and the application logic.
-- **service**: Data access classes, such as `UsuarioDAO` and `PartidaDAO`.
-- **util**: Utility classes, such as the database connection class.
+- **service**: Data access classes and database connection, such as `UsuarioDAO`, `PartidaDAO`, and `ConexionBD`.
+- **util**: Utility classes for reusable game logic, such as `JuegoValidator`.
 - **resources**: FXML views, images, and CSS styles.
 - **docs**: Project documentation, database scripts, mockups, and UML diagrams.
 
@@ -195,44 +195,70 @@ The rendered diagrams are included in the repository.
 
 ```text
 oodleGame/
-│
-├── docs/
-│   ├── database/
-│   ├── diagrams/
-│   │   ├── clases.png
-│   │   ├── secuenciaHistorial.png
-│   │   ├── secuenciaLogin.png
-│   │   ├── secuenciaPartida.png
-│   │   └── secuenciaRegistro.png
-│   └── mockups/
-│
-├── src/
-│   └── main/
-│       ├── java/
-│       │   ├── com.example.oodlegame/
-│       │   │   ├── controller/
-│       │   │   ├── model/
-│       │   │   ├── service/
-│       │   │   ├── util/
-│       │   │   ├── HelloApplication.java
-│       │   │   └── HelloController.java
-│       │   └── module-info.java
-│       │
-│       └── resources/
-│           ├── com.example.oodlegame/
-│           │   ├── images/
-│           │   ├── hello-view.fxml
-│           │   ├── historial.fxml
-│           │   ├── Login.fxml
-│           │   ├── Menu.fxml
-│           │   ├── Partida.fxml
-│           │   └── Registro.fxml
-│           └── css/
-│
-├── .gitignore
-├── mvnw
-├── mvnw.cmd
-└── pom.xml
+|
++-- docs/
+|   +-- database/
+|   |   `-- schema.sql
+|   +-- diagrams/
+|   |   +-- clases.png
+|   |   +-- secuenciaHistorial.png
+|   |   +-- secuenciaLogin.png
+|   |   +-- secuenciaPartida.png
+|   |   `-- secuenciaRegistro.png
+|   `-- mockups/
+|       `-- mockupOoodle.png
+|
++-- src/
+|   +-- main/
+|   |   +-- java/
+|   |   |   +-- com/example/oodlegame/
+|   |   |   |   +-- controller/
+|   |   |   |   |   +-- HistorialController.java
+|   |   |   |   |   +-- LoginController.java
+|   |   |   |   |   +-- MenuController.java
+|   |   |   |   |   +-- PartidaController.java
+|   |   |   |   |   `-- RegistroController.java
+|   |   |   |   +-- model/
+|   |   |   |   |   +-- Intento.java
+|   |   |   |   |   +-- Partida.java
+|   |   |   |   |   `-- Usuario.java
+|   |   |   |   +-- service/
+|   |   |   |   |   +-- ConexionBD.java
+|   |   |   |   |   +-- PartidaDAO.java
+|   |   |   |   |   `-- UsuarioDAO.java
+|   |   |   |   +-- util/
+|   |   |   |   |   `-- JuegoValidator.java
+|   |   |   |   +-- HelloApplication.java
+|   |   |   |   `-- HelloController.java
+|   |   |   `-- module-info.java
+|   |   |
+|   |   `-- resources/
+|   |       +-- com/example/oodlegame/
+|   |       |   +-- images/
+|   |       |   |   +-- division.png
+|   |       |   |   +-- Logo.png
+|   |       |   |   +-- multiplicacion.png
+|   |       |   |   +-- resta.png
+|   |       |   |   `-- suma.png
+|   |       |   +-- hello-view.fxml
+|   |       |   +-- historial.fxml
+|   |       |   +-- Login.fxml
+|   |       |   +-- Menu.fxml
+|   |       |   +-- Partida.fxml
+|   |       |   `-- Registro.fxml
+|   |       `-- css/
+|   |           `-- global.css
+|   |
+|   `-- test/
+|       `-- java/
+|           `-- com/example/oodlegame/
+|               `-- util/
+|                   `-- JuegoValidatorTest.java
+|
++-- .gitignore
++-- mvnw
++-- mvnw.cmd
+`-- pom.xml
 ```
 
 ---
