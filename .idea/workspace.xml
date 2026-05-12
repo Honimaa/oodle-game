@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Cambios al controlador de partida para seguir las indicaciones del profesor" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Liberacion correcta de recursos al cerrar la aplicacion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/clases.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/clases.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaHistorial.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaHistorial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaLogin.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaLogin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaPartida.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaPartida.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diagrams/secuenciaRegistro.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diagrams/secuenciaRegistro.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,14 +116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Estructura del proyecto inicial y bases de los DAO">
-      <option name="closed" value="true" />
-      <created>1771793959837</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1771793959837</updated>
     </task>
     <task id="LOCAL-00003" summary="Estructura del proyecto inicial y bases de los DAO">
       <option name="closed" value="true" />
@@ -502,11 +501,18 @@
       <option name="project" value="LOCAL" />
       <updated>1778133714037</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Liberacion correcta de recursos al cerrar la aplicacion">
+      <option name="closed" value="true" />
+      <created>1778134080624</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1778134080624</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="agregado metodo para buscar por nombre de usuario" />
     <MESSAGE value="Correccion de interfaz y busqueda de usuarios" />
     <MESSAGE value="requisitos de contrasena" />
     <MESSAGE value="Hash password" />
@@ -531,6 +537,7 @@
     <MESSAGE value="Preparacion para presentar la aplicacion el dia de manana" />
     <MESSAGE value="cambiado el cifrado de contrasenas al patron md5 para seguir los estandares" />
     <MESSAGE value="Cambios al controlador de partida para seguir las indicaciones del profesor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios al controlador de partida para seguir las indicaciones del profesor" />
+    <MESSAGE value="Liberacion correcta de recursos al cerrar la aplicacion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Liberacion correcta de recursos al cerrar la aplicacion" />
   </component>
 </project>

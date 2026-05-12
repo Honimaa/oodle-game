@@ -176,27 +176,47 @@ Both the source files (`.puml`) and rendered images (`.png`) are included in the
 
 ![Sequence Diagram - Consult history of matches](docs/diagrams/secuenciaHistorial.png)
 
----
-
+```markdown
 ## 9. Project Structure
 
-```
-oodle-game/
+```text
+oodleGame/
 │
-├── src/main/java/com/example/oodlegame
-│   ├── model
-│   ├── dao
-│   ├── util
-│   ├── controller
+├── docs/
+│   ├── database/
+│   ├── diagrams/
+│   │   ├── clases.png
+│   │   ├── secuenciaHistorial.png
+│   │   ├── secuenciaLogin.png
+│   │   ├── secuenciaPartida.png
+│   │   └── secuenciaRegistro.png
+│   └── mockups/
 │
-├── src/main/resources
-│   ├── fxml
-│   ├── css
+├── src/
+│   └── main/
+│       ├── java/
+│       │   ├── com.example.oodlegame/
+│       │   │   ├── controller/
+│       │   │   ├── model/
+│       │   │   ├── service/
+│       │   │   ├── util/
+│       │   │   ├── HelloApplication.java
+│       │   │   └── HelloController.java
+│       │   └── module-info.java
+│       │
+│       └── resources/
+│           ├── com.example.oodlegame/
+│           │   ├── images/
+│           │   ├── historial.fxml
+│           │   ├── Login.fxml
+│           │   ├── Menu.fxml
+│           │   ├── Partida.fxml
+│           │   └── Registro.fxml
+│           └── css/
 │
-├── docs
-│   ├── mockups
-│   ├── diagrams
-│
+├── .gitignore
+├── mvnw
+├── mvnw.cmd
 └── pom.xml
 ```
 
