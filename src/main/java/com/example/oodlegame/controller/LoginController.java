@@ -2,6 +2,7 @@ package com.example.oodlegame.controller;
 
 import com.example.oodlegame.service.UsuarioDAO;
 import com.example.oodlegame.model.Usuario;
+import com.example.oodlegame.util.AppLogger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -68,7 +69,7 @@ public class LoginController {
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al validar inicio de sesion", e);
             showAlert(Alert.AlertType.ERROR, "Error al iniciar sesion, intente nuevamente");
         }
     }
@@ -83,7 +84,7 @@ public class LoginController {
             Stage stage = (Stage) btnRegistrar.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al abrir pantalla de registro", e);
         }
     }
 
@@ -101,7 +102,7 @@ public class LoginController {
             stage.setScene(scene);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            AppLogger.error("Error al abrir menu principal", e);
         }
     }
 

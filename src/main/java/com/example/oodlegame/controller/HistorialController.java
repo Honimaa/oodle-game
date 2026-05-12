@@ -3,6 +3,7 @@ package com.example.oodlegame.controller;
 import com.example.oodlegame.model.Partida;
 import com.example.oodlegame.model.Usuario;
 import com.example.oodlegame.service.PartidaDAO;
+import com.example.oodlegame.util.AppLogger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -241,7 +242,7 @@ public class HistorialController {
             Stage stage = (Stage) backButton.getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
-            e.printStackTrace();
+            AppLogger.error("Error al volver desde historial al menu", e);
             mostrarAlerta("Error", "No se pudo volver al menú.");
         }
     }

@@ -227,6 +227,7 @@ oodleGame/
 |   |   |   |   |   +-- PartidaDAO.java
 |   |   |   |   |   `-- UsuarioDAO.java
 |   |   |   |   +-- util/
+|   |   |   |   |   +-- AppLogger.java
 |   |   |   |   |   `-- JuegoValidator.java
 |   |   |   |   +-- HelloApplication.java
 |   |   |   |   `-- HelloController.java
@@ -253,6 +254,7 @@ oodleGame/
 |       `-- java/
 |           `-- com/example/oodlegame/
 |               `-- util/
+|                   +-- AppLoggerTest.java
 |                   `-- JuegoValidatorTest.java
 |
 +-- .gitignore

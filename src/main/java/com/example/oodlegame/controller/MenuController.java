@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import com.example.oodlegame.model.Usuario;
+import com.example.oodlegame.util.AppLogger;
 
 
 public class MenuController {
@@ -44,7 +45,7 @@ public class MenuController {
             Stage stage = (Stage) btnNewMatch.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al abrir pantalla de partida", e);
         }
     }
 
@@ -62,7 +63,7 @@ public class MenuController {
             Stage stage = (Stage) btnHistory.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al abrir historial", e);
         }
     }
 
@@ -77,7 +78,7 @@ public class MenuController {
             Stage stage = (Stage) btnClose.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al cerrar sesion", e);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.oodlegame;
 
+import com.example.oodlegame.util.AppLogger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ public class    HelloApplication extends Application {
         try {
             System.out.println("Cerrando aplicación y liberando recursos...");
         } catch (Exception e) {
-            e.printStackTrace();
+            AppLogger.error("Error al cerrar la aplicacion", e);
         }
     }
 

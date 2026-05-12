@@ -1,6 +1,7 @@
 package com.example.oodlegame.service;
 
 import com.example.oodlegame.model.Usuario;
+import com.example.oodlegame.util.AppLogger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +24,7 @@ public class UsuarioDAO {
             return filasAfectadas > 0;
 
         } catch (SQLException e){
-            e.printStackTrace();
+            AppLogger.error("Error al registrar usuario", e);
             return true;
         }
     }
@@ -61,7 +62,7 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            AppLogger.error("Error al buscar usuario por email", e);
         }
 
         if (email.equalsIgnoreCase("demo@oodle.com")) {
@@ -87,7 +88,7 @@ public class UsuarioDAO {
                 return rs.getInt(1) > 0;
             }
         } catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al validar usuario duplicado", e);
             return false;
         }
         return false;
@@ -107,7 +108,7 @@ public class UsuarioDAO {
                 return rs.getInt(1) > 0;
             }
         } catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al validar email duplicado", e);
             return false;
         }
         return false;

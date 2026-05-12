@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="Actualizacion a los mockups">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/util/JuegoValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/oodlegame/util/JuegoValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="cambios en el readme para que se agregue la carpeta test">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/PartidaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/PartidaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +69,8 @@
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
     "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "JUnit.AppLoggerTest.executor": "Run",
+    "JUnit.JuegoValidatorTest.executor": "Run",
     "Maven.oodleGame [clean].executor": "Run",
     "Maven.oodleGame [compile].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -116,22 +123,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Configuracion de los dao y de los modelo">
-      <option name="closed" value="true" />
-      <created>1771895385105</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1771895385105</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Css global para aplicar a las interfaces cuando se hagan">
-      <option name="closed" value="true" />
-      <created>1771979573160</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1771979573160</updated>
     </task>
     <task id="LOCAL-00007" summary="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global">
       <option name="closed" value="true" />
@@ -509,12 +500,26 @@
       <option name="project" value="LOCAL" />
       <updated>1778565589918</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Cambios para integracion de pruebas unitarias">
+      <option name="closed" value="true" />
+      <created>1778566313035</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1778566313036</updated>
+    </task>
+    <task id="LOCAL-00055" summary="cambios en el readme para que se agregue la carpeta test">
+      <option name="closed" value="true" />
+      <created>1778566541255</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1778566541255</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hash password" />
-    <MESSAGE value="logica de login" />
     <MESSAGE value="conteo de intentos de login" />
     <MESSAGE value="Arreglado bug con la interfaz de registro" />
     <MESSAGE value="Arreglado bug en login" />
@@ -538,6 +543,8 @@
     <MESSAGE value="Liberacion correcta de recursos al cerrar la aplicacion" />
     <MESSAGE value="arreglos a los diagramas y al README" />
     <MESSAGE value="Actualizacion a los mockups" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion a los mockups" />
+    <MESSAGE value="Cambios para integracion de pruebas unitarias" />
+    <MESSAGE value="cambios en el readme para que se agregue la carpeta test" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios en el readme para que se agregue la carpeta test" />
   </component>
 </project>

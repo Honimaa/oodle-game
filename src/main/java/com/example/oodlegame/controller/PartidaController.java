@@ -4,6 +4,7 @@ import com.example.oodlegame.model.Intento;
 import com.example.oodlegame.model.Partida;
 import com.example.oodlegame.model.Usuario;
 import com.example.oodlegame.service.PartidaDAO;
+import com.example.oodlegame.util.AppLogger;
 import com.example.oodlegame.util.JuegoValidator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -135,7 +136,7 @@ public class PartidaController {
             Stage stage = (Stage) fields[0][0].getScene().getWindow();
             stage.setScene(scene);
         } catch (Exception e) {
-            e.printStackTrace();
+            AppLogger.error("Error al volver desde partida al menu", e);
             mostrarAlerta("Error", "No se pudo volver al menú.");
         }
     }
@@ -315,7 +316,7 @@ public class PartidaController {
                     PartidaDAO partidaDAO = new PartidaDAO();
                     partidaDAO.guardarPartida(this.partida);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    AppLogger.error("Error al guardar partida finalizada", e);
                     mostrarAlerta("Error", "No se pudo guardar la partida.");
                 }
             }

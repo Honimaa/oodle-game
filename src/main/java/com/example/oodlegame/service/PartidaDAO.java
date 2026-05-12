@@ -1,6 +1,7 @@
 package com.example.oodlegame.service;
 
 import com.example.oodlegame.model.Partida;
+import com.example.oodlegame.util.AppLogger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class PartidaDAO {
             return true;
 
         }catch (SQLException e){
-            e.printStackTrace();
+            AppLogger.error("Error al guardar partida", e);
             return true;
         }
     }
@@ -57,7 +58,7 @@ public class PartidaDAO {
             }
 
         }catch (SQLException e){
-            e.printStackTrace();
+            AppLogger.error("Error al obtener partidas del usuario", e);
             return obtenerPartidasDemo();
         }
 

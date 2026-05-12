@@ -2,6 +2,7 @@ package com.example.oodlegame.controller;
 
 import com.example.oodlegame.model.Usuario;
 import com.example.oodlegame.service.UsuarioDAO;
+import com.example.oodlegame.util.AppLogger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -88,8 +89,9 @@ public class RegistroController {
             }else {
                 showAlert(Alert.AlertType.ERROR, "No se pudo registrar el usuario, email o usuario ya existen");
             }
-            }catch (Exception e){
-                showAlert(Alert.AlertType.ERROR, "Error en la base de datos");
+        }catch (Exception e){
+            AppLogger.error("Error al registrar nuevo usuario", e);
+            showAlert(Alert.AlertType.ERROR, "Error en la base de datos");
         }
     }
 
@@ -102,7 +104,7 @@ public class RegistroController {
             Stage stage = (Stage) btnNewUser.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
-            e.printStackTrace();
+            AppLogger.error("Error al abrir pantalla de login", e);
         }
     }
 
