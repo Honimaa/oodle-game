@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="cambios en el readme para que se agregue la carpeta test">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="4aeaa9f6-ba84-4e83-b74e-5fde136f009d" name="Changes" comment="registro de los errores tecnicos en un log">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/HistorialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/PartidaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/controller/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/PartidaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/PartidaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oodlegame/service/UsuarioDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,22 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "DefaultPlantUmlFileTemplate": "UML Sequence",
-    "JUnit.AppLoggerTest.executor": "Run",
-    "JUnit.JuegoValidatorTest.executor": "Run",
-    "Maven.oodleGame [clean].executor": "Run",
-    "Maven.oodleGame [compile].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Camilo/IdeaProjects/oodleGame/docs/mockups",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
+    &quot;JUnit.AppLoggerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JuegoValidatorTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.oodleGame [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.oodleGame [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Camilo/IdeaProjects/oodleGame/docs/mockups&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\docs\mockups" />
@@ -95,7 +85,7 @@
       <recent name="C:\Users\Camilo\IdeaProjects\oodleGame\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.oodlegame.HelloApplication" />
       <module name="oodleGame" />
@@ -109,9 +99,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppLoggerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oodleGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.oodlegame.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.oodlegame.util" />
+      <option name="MAIN_CLASS_NAME" value="com.example.oodlegame.util.AppLoggerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JuegoValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oodleGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.oodlegame.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.oodlegame.util" />
+      <option name="MAIN_CLASS_NAME" value="com.example.oodlegame.util.JuegoValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.JuegoValidatorTest" />
+        <item itemvalue="JUnit.AppLoggerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -123,22 +145,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771790516945</updated>
-    </task>
-    <task id="LOCAL-00007" summary="mockup de algunas de las interfaces para mostrar el diseno con el que deberian quedar segun el archivo de css global">
-      <option name="closed" value="true" />
-      <created>1771980580738</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1771980580738</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Readme modificado con los mockups">
-      <option name="closed" value="true" />
-      <created>1771981458761</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1771981458761</updated>
     </task>
     <task id="LOCAL-00009" summary="diagramas uml y workflow">
       <option name="closed" value="true" />
@@ -516,11 +522,26 @@
       <option name="project" value="LOCAL" />
       <updated>1778566541255</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="registro de los errores tecnicos en un log">
+      <option name="closed" value="true" />
+      <created>1778566989842</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1778566989842</updated>
+    </task>
+    <task id="LOCAL-00057" summary="registro de los errores tecnicos en un log">
+      <option name="closed" value="true" />
+      <created>1778630878068</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1778630878068</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="conteo de intentos de login" />
     <MESSAGE value="Arreglado bug con la interfaz de registro" />
     <MESSAGE value="Arreglado bug en login" />
     <MESSAGE value="Correcciones a los diagramas y cambios en el README" />
@@ -545,6 +566,7 @@
     <MESSAGE value="Actualizacion a los mockups" />
     <MESSAGE value="Cambios para integracion de pruebas unitarias" />
     <MESSAGE value="cambios en el readme para que se agregue la carpeta test" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios en el readme para que se agregue la carpeta test" />
+    <MESSAGE value="registro de los errores tecnicos en un log" />
+    <option name="LAST_COMMIT_MESSAGE" value="registro de los errores tecnicos en un log" />
   </component>
 </project>
